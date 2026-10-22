@@ -1,0 +1,22 @@
+# Dependencies and build output (keep these off OneDrive sync if possible)
+node_modules/
+dist/
+.astro/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and caches
+npm-debug.log*
+.npm/
+.cache/
+
+# OS and editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+*.code-workspace
