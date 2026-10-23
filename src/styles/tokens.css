@@ -1,0 +1,40 @@
+/*
+  Trapp Tutoring color tokens — teal / coral / cream.
+
+  Contrast on cream (#F4EFE6), WCAG 2.2:
+  - Ink #123832: 11.20:1 (AAA body and headings)
+  - Mid teal #165A54: 6.99:1 (AA links; ~7:1 aim)
+  - Coral #D4684A: 3.12:1 (fails small text; OK as a large decorative accent at 3:1)
+
+  Coral is not used for small body text.
+  Filled actions use the fallback: deep teal (--color-ink) with cream type
+  (11.20:1). Do not put small copy on coral.
+
+  Ink on white wells: 12.82:1 (AAA).
+*/
+
+:root {
+  --color-cream: #f4efe6;
+  --color-ink: #123832;
+  --color-teal: #165a54;
+  --color-coral: #d4684a;
+  --color-well: #ffffff;
+
+  --color-surface: var(--color-cream);
+  --color-text: var(--color-ink);
+  --color-heading: var(--color-ink);
+  --color-link: var(--color-teal);
+  --color-accent: var(--color-coral);
+  --color-action-bg: var(--color-ink);
+  --color-action-fg: var(--color-cream);
+  --color-feedback: var(--color-teal);
+}
+
+html {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-link);
+}

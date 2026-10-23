@@ -31,37 +31,42 @@ Goal: a running Astro repo on GitHub with tokens, type, and the meeting-button p
 - **Goal:** Local project that builds and deploys from GitHub.
 - **Do:** Astro + TypeScript. Connect a static host (Cloudflare Pages or GitHub Pages). Preview URL first; custom domain later (P7-02).
 - **Accept:** `npm run build` succeeds. README explains local run and deploy. No Google Sites dependency.
-- **Status:** `blocked` — local Astro + TypeScript app builds (`npm run build` and `npm run check` passed). README and GitHub Pages workflow are in place. Initial commit is staged but not created: no git user.name/user.email (agent will not set git config) and `gh` is not logged in. Need those to push and get a preview URL.
+- **Status:** `done` — `npm run build` and `npm run check` passed. Repo is https://github.com/sam-dev-site/trapp-tutoring (`main` pushed). GitHub Pages workflow is on `main`. Enable **Settings → Pages → Source: GitHub Actions** for the preview (`https://sam-dev-site.github.io/trapp-tutoring/`). Custom domain stays P7-02.
 
 ### P1-02 — Design tokens (teal / coral / cream)
 
 - **Goal:** One token file the rest of the UI uses.
 - **Do:** CSS custom properties for cream surface, deep teal ink, mid teal, coral, white wells. Contrast-check body text on cream (aim 7:1). If coral fails on small type, document the fallback: deep teal buttons with cream type.
 - **Accept:** Tokens documented. Body/heading contrast meets WCAG 2.2 AA (prefer AAA for text). Coral is not used for small body text unless it passes.
+- **Status:** `done` — Tokens in `src/styles/tokens.css`. Ink on cream 11.20:1 (AAA). Mid teal on cream 6.99:1 (AA, ~7:1). Coral on cream 3.12:1 — accent only, not small text. Filled actions: ink + cream (11.20:1). Verified `npm run build` / `npm run check`; desktop + 320px preview shows cream surface and ink heading, no horizontal scroll.
 
 ### P1-03 — Type scale
 
 - **Goal:** Dyslexia-first type on every page.
 - **Do:** Atkinson Hyperlegible or Lexend. Body 18–20px, line-height 1.6–1.75, measure ~60–65ch, left-aligned. No justified text, no long italics, no all-caps paragraphs.
 - **Accept:** Default body and heading styles match the plan. Line length is capped in the layout.
+- **Status:** `done` — Atkinson Hyperlegible, body 20px / line-height 1.7, left-aligned, no italics or all-caps. `main` measure 65ch. Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
 
 ### P1-04 — App shell and skip link
 
 - **Goal:** Predictable page frame.
 - **Do:** Landmark regions, skip-to-main-content, visible `:focus-visible` (never `outline: none` without a replacement).
 - **Accept:** Keyboard skip works. Focus is always visible.
+- **Status:** `done` — `BaseLayout` has skip link, `header`, and `main#main` (`tabindex="-1"`). `:focus-visible` is 3px teal; no `outline: none`. Skip activation moves focus to `#main`. Verified `npm run build` / `npm run check`; 320px no horizontal scroll.
 
 ### P1-05 — Responsive shell and mobile disclosure nav
 
 - **Goal:** Air Reading structure on desktop; in-flow menu on small screens.
 - **Do:** Logo left; Home · Tutoring With Me · Dyslexia · Barton · Login; filled **Set up a meeting** on the right. Mobile menu expands in document flow — not a focus-trapping overlay, not a pop-up. Current-page underline. Underline animation respects `prefers-reduced-motion`.
 - **Accept:** Usable at 320px, no horizontal scroll. Menu is keyboard-reachable. Reduced-motion: underline does not slide. “Set up a meeting” scrolls to `#meeting` (or equivalent), never opens a modal.
+- **Status:** `done` — Air Reading row on desktop; in-flow `<details>` Menu on small screens (not a modal). Nav labels Home · Tutoring With Me · Dyslexia · Barton · Login. Meeting control is `href="#meeting"` (no dialog). Current page uses `aria-current` + underline. Reduced-motion: underline transition `none`. Verified `npm run build` / `npm run check`; 320px no horizontal scroll; Menu opens in document flow.
 
 ### P1-06 — Meeting-button component
 
 - **Goal:** The one CTA, reusable.
 - **Do:** Large Email / Text / Call. `mailto:trapptutoring@gmail.com`, `tel:+16517600402`, `sms:+16517600402`. Targets ≥44px.
 - **Accept:** All three open the right protocol. No form, no calendar. Works on a real phone.
+- **Status:** `done` — `MeetingButtons` on every page in `#meeting`. Email `mailto:trapptutoring@gmail.com`, Text `sms:+16517600402`, Call `tel:+16517600402`. Targets 58×77px+ (≥44). No form or calendar. Verified `npm run build` / `npm run check`; desktop + 320px. Native sms/tel not fired in this desktop browser — tap on a phone to confirm.
 
 ---
 

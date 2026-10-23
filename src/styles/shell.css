@@ -1,0 +1,45 @@
+/* App shell: skip link and always-visible keyboard focus. Never `outline: none`. */
+
+:focus-visible {
+  outline: 3px solid var(--color-teal);
+  outline-offset: 3px;
+}
+
+.skip-link:not(:focus):not(:focus-visible) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 20;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip-path: none;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-action-bg);
+  color: var(--color-action-fg);
+  text-decoration: none;
+}
+
+.site-header {
+  padding: 1rem 1.25rem;
+}
+
+.wordmark {
+  color: var(--color-ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.wordmark:hover {
+  color: var(--color-link);
+}

@@ -1,0 +1,21 @@
+---
+const actions = [
+	{ href: 'mailto:trapptutoring@gmail.com', label: 'Email' },
+	{ href: 'sms:+16517600402', label: 'Text' },
+	{ href: 'tel:+16517600402', label: 'Call' },
+] as const;
+---
+
+<p>
+	Please inquire for a free meeting with me to see if Trapp Tutoring may be a good
+	fit for you!
+</p>
+<div class="meeting-buttons">
+	{
+		actions.map((action) => (
+			<a class="meeting-button" href={action.href}>
+				{action.label}
+			</a>
+		))
+	}
+</div>
