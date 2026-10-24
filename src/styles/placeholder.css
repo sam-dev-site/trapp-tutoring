@@ -1,0 +1,23 @@
+.image-placeholder {
+  margin: 0 0 1.5rem;
+  max-width: 100%;
+}
+
+.image-placeholder-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--color-well);
+  border: 2px dashed var(--color-teal);
+  border-radius: 0.5rem;
+}
+
+.image-placeholder-frame p {
+  margin: 0;
+  max-width: 40ch;
+  text-align: left;
+  color: var(--color-ink);
+}

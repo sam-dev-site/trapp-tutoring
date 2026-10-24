@@ -1,0 +1,23 @@
+---
+interface Props {
+	size?: number;
+}
+
+const { size = 64 } = Astro.props;
+---
+
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	width={size}
+	height={size}
+	viewBox="0 0 32 32"
+	role="img"
+>
+	<title>Trapp Tutoring logo option: letter tiles</title>
+	<rect x="1.5" y="4" width="17" height="17" rx="3" fill="#165a54" />
+	<rect x="5" y="7.2" width="10" height="2.6" rx="0.6" fill="#f4efe6" />
+	<rect x="8.2" y="7.2" width="3.6" height="10.4" rx="0.6" fill="#f4efe6" />
+	<rect x="13.5" y="11" width="17" height="17" rx="3" fill="#d4684a" />
+	<rect x="17" y="14.2" width="10" height="2.6" rx="0.6" fill="#f4efe6" />
+	<rect x="20.2" y="14.2" width="3.6" height="10.4" rx="0.6" fill="#f4efe6" />
+</svg>

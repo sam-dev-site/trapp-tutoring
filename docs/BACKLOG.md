@@ -79,18 +79,21 @@ Goal: logo options, rebuilt offer icons, and a placeholder image component so pa
 - **Goal:** Erin can pick a mark.
 - **Do:** New symbol only — do not refresh the book/flowers. Explore letter-tile / word-building and a simple monogram. Education + fun, kid-friendly, calm. Teal / coral / cream. SVG with accessible title. Must read at favicon size and in the nav.
 - **Accept:** 2–3 options presented. Wordmark “Trapp Tutoring” is live text or titled SVG. No essential words in a raster.
+- **Status:** `done` — Three SVG options at `/logo-options` (not in nav): A letter tiles, B word-building, C TT monogram. Live-text wordmark. Accessible `<title>` on each mark. No rasters. No final mark picked (O-02). Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
 
 ### P2-02 — Offer icons (five)
 
 - **Goal:** Better than the current Google Sites clip-art.
 - **Do:** One icon each: 1:1, fully remote, interactive/multisensory, Barton system, multiple times per week (~50 minutes). Same language as the chosen (or interim) logo family.
 - **Accept:** Icons scale cleanly. Decorative icons are hidden from AT or have empty alt; meaning is in the adjacent heading/text.
+- **Status:** `done` — `OfferIcon` has five marks (1:1, remote, interactive, Barton sequence, weekly). Interim tile family. `aria-hidden="true"`, no SVG title; headings carry meaning. Shown at 32/48/72 on `/offer-icons` (not in nav). Verified `npm run build` / `npm run check`; desktop + narrow width.
 
 ### P2-03 — Labeled image placeholder
 
 - **Goal:** Build layout without waiting for Erin’s photos.
 - **Do:** A component that shows a reserved frame and a **recommended replacement** label (e.g. “Replace with: Erin hero, warm, facing camera”). Use for hero, About headshot, teaching setup, session photo, optional tiles close-up.
 - **Accept:** Every image slot in later pages can use this. Labels name the shot from [PROJECT-PLAN.md](PROJECT-PLAN.md) §7.
+- **Status:** `done` — `ImagePlaceholder` supports hero, about, teaching, session, tiles. Labels match PROJECT-PLAN §7. Preview at `/photo-placeholders` (not in nav). Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
 
 ---
 

@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import OfferIcon from '../components/OfferIcon.astro';
+import '../styles/offer-icons.css';
+
+const icons = [
+	{ name: 'one-on-one' as const, label: 'One-On-One' },
+	{ name: 'remote' as const, label: 'Fully Remote' },
+	{ name: 'interactive' as const, label: 'Interactive and Multisensory' },
+	{ name: 'barton' as const, label: 'Barton System' },
+	{ name: 'weekly' as const, label: 'Multiple Times per Week' },
+];
+---
+
+<BaseLayout title="Offer icons — Trapp Tutoring">
+	<h1>Offer icons</h1>
+	<p>
+		Five rebuilt icons in the interim tile family (teal / coral / cream). Meaning
+		is in the heading next to each mark. Icons are decorative.
+	</p>
+	<div class="offer-icon-list">
+		{
+			icons.map((icon) => (
+				<section class="offer-icon-item">
+					<div class="offer-icon-sizes">
+						<OfferIcon name={icon.name} size={32} />
+						<OfferIcon name={icon.name} size={48} />
+						<OfferIcon name={icon.name} size={72} />
+					</div>
+					<h2>{icon.label}</h2>
+				</section>
+			))
+		}
+	</div>
+</BaseLayout>

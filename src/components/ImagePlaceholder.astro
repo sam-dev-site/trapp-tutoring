@@ -1,0 +1,41 @@
+---
+import '../styles/placeholder.css';
+
+export type PhotoShot = 'hero' | 'about' | 'teaching' | 'session' | 'tiles';
+
+interface Props {
+	shot: PhotoShot;
+}
+
+const shots: Record<PhotoShot, { label: string; ratio: string }> = {
+	hero: {
+		label: 'Replace with: Erin hero, warm, facing camera, space around her',
+		ratio: '16 / 9',
+	},
+	about: {
+		label: 'Replace with: About headshot of Erin, different from the hero if possible',
+		ratio: '4 / 5',
+	},
+	teaching: {
+		label: 'Replace with: Teaching setup — workspace / Koala Go, over-the-shoulder or at the desk',
+		ratio: '16 / 9',
+	},
+	session: {
+		label: 'Replace with: Session photo (student faces allowed with permission)',
+		ratio: '4 / 3',
+	},
+	tiles: {
+		label: 'Replace with: Close-up of letter tiles / games (no third-party logos)',
+		ratio: '1 / 1',
+	},
+};
+
+const { shot } = Astro.props;
+const { label, ratio } = shots[shot];
+---
+
+<figure class="image-placeholder">
+	<div class="image-placeholder-frame" style={`aspect-ratio: ${ratio};`} role="img" aria-label={label}>
+		<p>{label}</p>
+	</div>
+</figure>

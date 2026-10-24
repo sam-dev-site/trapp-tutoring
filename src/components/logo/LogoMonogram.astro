@@ -1,0 +1,21 @@
+---
+interface Props {
+	size?: number;
+}
+
+const { size = 64 } = Astro.props;
+---
+
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	width={size}
+	height={size}
+	viewBox="0 0 32 32"
+	role="img"
+>
+	<title>Trapp Tutoring logo option: T T monogram</title>
+	<rect x="2" y="2" width="28" height="28" rx="6" fill="#f4efe6" stroke="#123832" stroke-width="1.5" />
+	<rect x="7" y="8" width="18" height="4" rx="1.2" fill="#165a54" />
+	<rect x="10.2" y="8" width="4" height="16" rx="1.2" fill="#165a54" />
+	<rect x="17.8" y="12" width="4" height="12" rx="1.2" fill="#d4684a" />
+</svg>
