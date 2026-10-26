@@ -1,0 +1,124 @@
+---
+const quotes = [
+	{
+		text: [
+			'It is so fun tutoring with Erin. I love it! We get to play games and learn to read all in the same thing!',
+		],
+		cite: 'Esther (Barton student)',
+	},
+	{
+		text: [
+			'My daughter Lou took English lessons with Erin for several years, remotely via a screen. We were all delighted (parents and child). Erin is patient, warm, cheerful and generous. Erin managed to break the barrier of the screen.',
+			"It's like they're both in the same room. Lou loved her lessons with Erin, and couldn't wait for the next lesson!",
+			'A very nice meeting! I recommend her +++',
+		],
+		cite: 'Caroline (Mother of an English Language student, France)',
+	},
+	{
+		text: [
+			'Erin consistently displays patience and compassion when working with children. She is engaging and kind while offering a strong sense of accountable structure and support. Erin has a calm tone and a natural ability to make children feel comfortable and safe in her presence. Erin always sees the best in the children that she is working with which offers each individual child the opportunity to grow based on their strengths.',
+		],
+		cite: 'Betsy (head of Little Gate at Louise McGehee School in New Orleans, LA)',
+	},
+	{
+		text: [
+			'I love tutoring with Erin! You get to play lots of games and you get to make a lot of words and made up words.',
+		],
+		cite: 'Nora (Barton student)',
+	},
+	{
+		text: [
+			'Ms. Erin provided the most loving, supportive, and encouraging atmosphere for our daughter. Her true kindness and generosity, as well as patience shined through every day of preschool with our daughter when she acclimated to a new school and during a pandemic. She has remained a requested staple in our home for many years to provide educational growth and compassionate care.',
+		],
+		cite: "Lauren (Mother of Student at Louise McGehee's Little Gate, New Orleans, LA)",
+	},
+	{
+		text: [
+			'Erin was a very patient and benevolent teacher. I was around 9 when I started and spoke no English. It was such a blessing to have Erin as my first English coach. Erin is kind, listening, and interesting. She was very passionate about her work.',
+		],
+		cite: 'Chiara (English language student, France)',
+	},
+] as const;
+---
+
+<section class="home-quotes" aria-labelledby="quotes-heading">
+	<h2 id="quotes-heading">What people say</h2>
+	<p>Here are some words from people I have worked with in the past:</p>
+	<div class="quote-gallery" data-quote-gallery>
+		<p class="quote-status" data-quote-status aria-live="polite"></p>
+		<ul class="quote-list">
+			{
+				quotes.map((quote) => (
+					<li class="quote-item" data-quote-item>
+						<blockquote>
+							{quote.text.map((paragraph) => (
+								<p>{paragraph}</p>
+							))}
+							<footer>
+								<cite>{quote.cite}</cite>
+							</footer>
+						</blockquote>
+					</li>
+				))
+			}
+		</ul>
+		<div class="quote-controls">
+			<button type="button" data-quote-prev>Previous</button>
+			<button type="button" data-quote-next>Next</button>
+		</div>
+	</div>
+</section>
+
+<script>
+	function pageSize() {
+		return window.matchMedia('(min-width: 48rem)').matches ? 2 : 1;
+	}
+
+	function setupGallery(root: HTMLElement) {
+		const items = [...root.querySelectorAll<HTMLElement>('[data-quote-item]')];
+		const statusEl = root.querySelector<HTMLElement>('[data-quote-status]');
+		const prevBtn = root.querySelector<HTMLButtonElement>('[data-quote-prev]');
+		const nextBtn = root.querySelector<HTMLButtonElement>('[data-quote-next]');
+		if (!statusEl || !prevBtn || !nextBtn || items.length === 0) {
+			return;
+		}
+		const status = statusEl;
+		const prev = prevBtn;
+		const next = nextBtn;
+
+		let index = 0;
+
+		function show() {
+			const size = pageSize();
+			const maxStart = Math.max(0, items.length - size);
+			index = Math.min(index, maxStart);
+			items.forEach((item, i) => {
+				item.hidden = i < index || i >= index + size;
+			});
+			const first = index + 1;
+			const last = Math.min(index + size, items.length);
+			status.textContent =
+				first === last
+					? `Quote ${first} of ${items.length}`
+					: `Quotes ${first}–${last} of ${items.length}`;
+			prev.disabled = index === 0;
+			next.disabled = index >= maxStart;
+		}
+
+		prev.addEventListener('click', () => {
+			index -= pageSize();
+			if (index < 0) {
+				index = 0;
+			}
+			show();
+		});
+		next.addEventListener('click', () => {
+			index += pageSize();
+			show();
+		});
+		window.addEventListener('resize', show);
+		show();
+	}
+
+	document.querySelectorAll<HTMLElement>('[data-quote-gallery]').forEach(setupGallery);
+</script>

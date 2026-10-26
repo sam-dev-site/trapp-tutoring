@@ -1,4 +1,10 @@
 ---
+interface Props {
+	lead?: boolean;
+}
+
+const { lead = true } = Astro.props;
+
 const actions = [
 	{ href: 'mailto:trapptutoring@gmail.com', label: 'Email' },
 	{ href: 'sms:+16517600402', label: 'Text' },
@@ -6,10 +12,14 @@ const actions = [
 ] as const;
 ---
 
-<p>
-	Please inquire for a free meeting with me to see if Trapp Tutoring may be a good
-	fit for you!
-</p>
+{
+	lead && (
+		<p>
+			Please inquire for a free meeting with me to see if Trapp Tutoring may be a
+			good fit for you!
+		</p>
+	)
+}
 <div class="meeting-buttons">
 	{
 		actions.map((action) => (

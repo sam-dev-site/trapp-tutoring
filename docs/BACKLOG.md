@@ -106,30 +106,35 @@ Goal: the hub page works end to end, including gallery and meeting section.
 - **Goal:** Branded closer without legal pages.
 - **Do:** Wordmark, meeting buttons, short nav. No Privacy / Terms / photo-release links.
 - **Accept:** Footer on every page. No invented address, hours, or city/state.
+- **Status:** `done` — Footer on every page: wordmark, short nav (Home · Tutoring With Me · Dyslexia · Barton · Login), Email / Text / Call. No Privacy / Terms / photo-release. No address, hours, or city/state. Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
 
 ### P3-02 — Home hero
 
 - **Goal:** Reading Guru energy, not their look.
 - **Do:** Large live-text headline, generous space, placeholder image (P2-03). Tagline as HTML: `Effective · Interactive · Research-based`. Not inside a graphic. Not a generic child-at-laptop stock photo. Not Reading Guru mint/type.
 - **Accept:** Headline and tagline are selectable text. Hero is welcoming on mobile and desktop.
+- **Status:** `done` — Live H1 “Reading and Spelling Intervention”; tagline `Effective · Interactive · Research-based` as HTML; hero placeholder (P2-03). Cream/ink, not Reading Guru mint. Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
 
 ### P3-03 — Home intro + About accordion
 
 - **Goal:** Short Erin intro; full story behind an expand control.
 - **Do:** Current Home paragraph. Accordion holds inventory About bio + philosophy with the three fact fixes (K-12 teacher, Barton-trained, six years). Keyboard-friendly disclosure. No other bio rewrite.
 - **Accept:** Closed by default. Full story is reachable by keyboard. No “licensed.” No “certified.” No “four years.”
+- **Status:** `done` — Home intro from inventory (Barton link). In-flow `<details>` “More about Erin” closed by default. Bio + philosophy with K-12 (not licensed), six years, Barton-trained (not certified). No “four years.” Verified `npm run build` / `npm run check`; keyboard open; desktop + 320px, no horizontal scroll.
 
 ### P3-04 — Testimonial gallery
 
 - **Goal:** All 6 quotes, 1–2 visible at a time.
 - **Do:** Prev/next (and optional dots). **No autoplay.** Keep ESL/preschool quotes. Light-edit typos (“listenting”, missing period after “generous Erin”, “everyday of preschool”). Keyboard operable. Announce the change for AT.
 - **Accept:** All 6 can be reached. Autoplay is off. Works at 320px. Reduced-motion: no slide animation required.
+- **Status:** `done` — All 6 quotes on Home (1 at 320, 2 on desktop). Prev/next, no autoplay. Live region announces the range. Light edits: period after “generous”, “every day”, “listening”. ESL/preschool kept. Verified `npm run build` / `npm run check`; all 6 reachable; 320px no horizontal scroll.
 
 ### P3-05 — Home meeting section + paths
 
 - **Goal:** The one action, plus labeled doors to the other pages.
 - **Do:** `#meeting` with the meeting trio and free-meeting copy direction. Three paths (Tutoring With Me, Dyslexia, Barton) that say what the visitor will find.
 - **Accept:** Nav “Set up a meeting” lands here. Paths are clear before click. No waitlist language.
+- **Status:** `done` — `#meeting` already has the trio and free-meeting sentence. Home paths to Tutoring With Me, Dyslexia, and Barton say what each page is for. No waitlist. Nav “Set up a meeting” lands on `#meeting`. Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
 
 ---
 
