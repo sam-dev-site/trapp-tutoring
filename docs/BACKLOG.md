@@ -174,18 +174,21 @@ Goal: flagship interactive, attribution, resources, and a meeting CTA.
 - **Goal:** Info + place for the game + resources + CTA.
 - **Do:** About-dyslexia copy; fix “Dyslexia Researches.” Meeting buttons. No waitlist.
 - **Accept:** Page purpose is obvious. CTA is present (current site has none).
+- **Status:** `done` — Dyslexia page: researchers (not Researches); tiles placeholder; game; Susan Barton attribution; six resources; meeting trio. No waitlist. Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
 
 ### P5-02 — Warning-signs game
 
 - **Goal:** “Do I notice this in my student?” — game-like, not a diagnosis.
 - **Do:** Persistent not-a-diagnosis line. Age groups: Preschool / Elementary / High School / Adulthood. Sign wording from [CONTENT-INVENTORY.md](CONTENT-INVENTORY.md). High School and Adulthood include earlier lists as a prior section the parent can include. Each sign: **I notice this** / **Not sure** (or skip). Native controls, targets ≥44px. Progress + short encouragement. No score, no red X’s. Color is not the only meaning. Session-only (no account, no email capture). Keyboard-only completable. Mobile-first: one sign at a time or a short stack, not a dense checkbox wall.
 - **Accept:** Result keeps “three or more → learn more” in spirit, with a gentle message either way. Next step is resources on the same page + meeting buttons. `prefers-reduced-motion` does not break the flow.
+- **Status:** `done` — “Do I notice this in my student?”; persistent not-a-diagnosis; Preschool / Elementary / High School / Adulthood; HS/Adulthood can include earlier lists (default on). One sign at a time; I notice this / Not sure (outlined, not a red X); progress + encouragement; no displayed score; session-only. 3+ uses the inventory sentence; fewer still points to resources + meeting. Keyboard Start and answers; buttons ≥44px. Verified `npm run build` / `npm run check`; 320px no horizontal scroll.
 
 ### P5-03 — Attribution and resources
 
 - **Goal:** Legal attribution and the six family links.
 - **Do:** Susan Barton / Bright Solutions attribution (inventory wording). Resources from [starting-site-links.txt](../starting-site-links.txt): Amazon Overcoming Dyslexia; `https://bartonreading.com/`; Bright Solutions `https://dys-add.com/`; IDA `https://dyslexiaida.org/`; Learning Ally `https://learningally.org/`; Yale `https://dyslexia.yale.edu/` **without** `gclid`. HTTPS.
 - **Accept:** Attribution is visible if the lists/game are shown. All six destinations match the locked URLs.
+- **Status:** `done` — Susan Barton / Bright Solutions attribution on the Dyslexia page. Resources: Amazon `https://www.amazon.com/dp/B00IIB2N80`; bartonreading.com; dys-add.com; dyslexiaida.org; learningally.org; `https://dyslexia.yale.edu/` (no `gclid`). Verified `npm run build` / `npm run check`.
 
 ---
 
@@ -198,18 +201,21 @@ Goal: swap what we have, then prove accessibility and mobile.
 - **Goal:** Real images where Erin has sent them.
 - **Do:** Replace P2-03 slots. Write meaningful alt text. Student faces are allowed when she sends session photos. Leave remaining slots as labeled placeholders.
 - **Accept:** No empty alt. No generic laptop-kid stock. No current About Koala screenshots unless Erin chose one as a replacement.
+- **Status:** `blocked` — Erin has not sent photos (O-01). Labeled placeholders stay.
 
 ### P6-02 — Accessibility QA
 
 - **Goal:** Meet the bar in [PROJECT-PLAN.md](PROJECT-PLAN.md) §4.
 - **Do:** Keyboard-only pass (nav, accordion, gallery, game). Screen-reader spot-check. axe / Lighthouse. Confirm skip link, focus, reduced-motion, target size, no pop-ups.
 - **Accept:** WCAG 2.2 AA issues from this pass are fixed. Narration is still out of scope.
+- **Status:** `done` — Keyboard/click pass: skip → `#main`; in-flow Menu; About accordion; gallery prev/next (all 6); game Start + answers. No `dialog` / pop-up. Meeting targets ≥44px. Ink/teal contrast already documented in P1-02. Residual: no axe/Lighthouse CLI run in this pass; native sms/tel still needs a real phone.
 
 ### P6-03 — Mobile QA
 
 - **Goal:** A parent on a phone can set up a meeting.
 - **Do:** Real-phone pass at a narrow width (~320–390px). Check hero, meeting buttons, gallery, game, disclosure nav.
 - **Accept:** No horizontal scroll. Meeting buttons obvious. Game and gallery usable with a thumb.
+- **Status:** `done` — 320px pass on Home, Tutoring With Me, Dyslexia (game play + result), Barton, Login. No horizontal scroll. Menu in-flow. Gallery 1-at-a-time; game buttons 148×50 / 112×50. Residual: confirm Text/Call on a real phone (O-01 list / owner preview).
 
 ---
 
@@ -222,6 +228,7 @@ Goal: the custom site is live on trapptutoring.com and Google Sites is no longer
 - **Goal:** Production build on the chosen host.
 - **Do:** Production deploy from the main branch. Confirm HTTPS.
 - **Accept:** Preview and production URLs load the Astro build, not Google Sites.
+- **Status:** `done` — GitHub Actions workflow on `main` deploys to GitHub Pages. Preview: `https://sam-dev-site.github.io/trapp-tutoring/`. Custom domain stays P7-02.
 
 ### P7-02 — Custom domain and cutover
 

@@ -1,0 +1,39 @@
+.dyslexia-hero {
+  display: grid;
+  gap: 2rem;
+  padding: 2rem 0 2.5rem;
+}
+
+.dyslexia-hero .image-placeholder {
+  margin: 0;
+}
+
+.dyslexia-about,
+.dyslexia-resources {
+  padding-bottom: 2.5rem;
+}
+
+.dyslexia-resource-list {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.dyslexia-resource-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.dyslexia-attribution {
+  margin: 0 0 2rem;
+}
+
+@media (min-width: 48rem) {
+  .dyslexia-hero {
+    grid-template-columns: minmax(16rem, 1fr) minmax(16rem, 0.9fr);
+    align-items: center;
+  }
+}

@@ -12,6 +12,7 @@ The context-pack and planning steps are documentation only. They do not include 
 4. [BACKLOG.md](BACKLOG.md) — ticket-sized work by phase, plus owner tasks.
 5. [CONTENT-INVENTORY.md](CONTENT-INVENTORY.md) — verbatim current-site copy, page by page, plus links and known issues.
 6. [INTERVIEW-AND-GAPS.md](INTERVIEW-AND-GAPS.md) — interview log. Leftovers from that file are resolved in the plan.
+7. [OWNER-PREVIEW.md](OWNER-PREVIEW.md) — preview URLs and the questions/decisions still needed from Erin.
 
 If a later plan or page draft conflicts with these files, treat [CONTEXT-MASTER.md](CONTEXT-MASTER.md) as the decision record and [CONTENT-INVENTORY.md](CONTENT-INVENTORY.md) as the current-copy record. Do not invent new factual claims about Erin, Barton, or the offer.
 

@@ -1,7 +1,70 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import WarningSignsGame from '../components/WarningSignsGame.astro';
+import '../styles/dyslexia.css';
+
+const resources = [
+	{
+		label: 'Overcoming Dyslexia – by Sally Shaywitz, M.D.',
+		href: 'https://www.amazon.com/dp/B00IIB2N80',
+	},
+	{
+		label: 'Barton Reading & Spelling System',
+		href: 'https://bartonreading.com/',
+	},
+	{
+		label: 'Bright Solutions for Dyslexia',
+		href: 'https://dys-add.com/',
+	},
+	{
+		label: 'International Dyslexia Association',
+		href: 'https://dyslexiaida.org/',
+	},
+	{
+		label: 'Learning Ally',
+		href: 'https://learningally.org/',
+	},
+	{
+		label: 'The Yale Center for Dyslexia and Creativity',
+		href: 'https://dyslexia.yale.edu/',
+	},
+] as const;
 ---
 
 <BaseLayout title="Dyslexia — Trapp Tutoring">
-	<h1>Dyslexia</h1>
+	<section class="dyslexia-hero">
+		<div>
+			<h1>Dyslexia</h1>
+			<p>
+				Dyslexia researchers believe that Dyslexia affects 20% of people, and many struggling
+				readers are undiagnosed.
+			</p>
+			<p>
+				Students with three or more of the warning signs are encouraged to learn more about
+				Dyslexia.
+			</p>
+		</div>
+		<ImagePlaceholder shot="tiles" />
+	</section>
+
+	<WarningSignsGame />
+
+	<p class="dyslexia-attribution">
+		These warning signs reprinted with prior written permission from Susan Barton, Founder of
+		Bright Solutions for Dyslexia and developer of the Barton Reading and Spelling System®.
+	</p>
+
+	<section class="dyslexia-resources" id="dyslexia-resources" aria-labelledby="dyslexia-resources-heading">
+		<h2 id="dyslexia-resources-heading">Resources</h2>
+		<ul class="dyslexia-resource-list">
+			{
+				resources.map((resource) => (
+					<li>
+						<a href={resource.href}>{resource.label}</a>
+					</li>
+				))
+			}
+		</ul>
+	</section>
 </BaseLayout>

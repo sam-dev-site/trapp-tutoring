@@ -1,0 +1,172 @@
+---
+import { ageGroups } from '../data/warningSigns';
+import '../styles/warning-game.css';
+---
+
+<section class="warning-game" data-warning-game aria-labelledby="warning-game-heading">
+	<h2 id="warning-game-heading">Do I notice this in my student?</h2>
+	<p class="warning-game-note">This is not a diagnosis.</p>
+
+	<div data-game-setup>
+		<fieldset class="warning-game-groups">
+			<legend>Choose an age group</legend>
+			{
+				ageGroups.map((group, index) => (
+					<label>
+						<input
+							type="radio"
+							name="warning-age"
+							value={group.id}
+							checked={index === 0}
+						/>
+						{group.label}
+					</label>
+				))
+			}
+		</fieldset>
+		<label class="warning-game-earlier" data-earlier-wrap hidden>
+			<input type="checkbox" data-include-earlier checked />
+			<span>Also include earlier warning signs</span>
+		</label>
+		<div class="warning-game-actions">
+			<button type="button" data-game-start>Start</button>
+		</div>
+	</div>
+
+	<div data-game-play hidden>
+		<p class="warning-game-progress" data-game-progress></p>
+		<p class="warning-game-encourage" data-game-encourage></p>
+		<div class="warning-game-sign" data-game-sign></div>
+		<div class="warning-game-answers">
+			<button type="button" data-answer="notice">I notice this</button>
+			<button type="button" data-answer="unsure">Not sure</button>
+		</div>
+	</div>
+
+	<div class="warning-game-result" data-game-result hidden>
+		<p data-game-result-text></p>
+		<p>
+			Next, read the resources below or <a href="#meeting">set up a free meeting</a>.
+		</p>
+	</div>
+</section>
+
+<script>
+	import { signsForGroup, type AgeGroup } from '../data/warningSigns';
+
+	const encouragement = ['Thanks.', 'Keep going.', 'Take your time.'];
+
+	function setupGame(root: HTMLElement) {
+		const setup = root.querySelector<HTMLElement>('[data-game-setup]');
+		const play = root.querySelector<HTMLElement>('[data-game-play]');
+		const result = root.querySelector<HTMLElement>('[data-game-result]');
+		const earlierWrap = root.querySelector<HTMLElement>('[data-earlier-wrap]');
+		const earlier = root.querySelector<HTMLInputElement>('[data-include-earlier]');
+		const start = root.querySelector<HTMLButtonElement>('[data-game-start]');
+		const progress = root.querySelector<HTMLElement>('[data-game-progress]');
+		const encourage = root.querySelector<HTMLElement>('[data-game-encourage]');
+		const signBox = root.querySelector<HTMLElement>('[data-game-sign]');
+		const resultText = root.querySelector<HTMLElement>('[data-game-result-text]');
+		const notice = root.querySelector<HTMLButtonElement>('[data-answer="notice"]');
+		const unsure = root.querySelector<HTMLButtonElement>('[data-answer="unsure"]');
+		if (
+			!setup ||
+			!play ||
+			!result ||
+			!earlierWrap ||
+			!earlier ||
+			!start ||
+			!progress ||
+			!encourage ||
+			!signBox ||
+			!resultText ||
+			!notice ||
+			!unsure
+		) {
+			return;
+		}
+
+		const setupEl = setup;
+		const playEl = play;
+		const resultEl = result;
+		const earlierWrapEl = earlierWrap;
+		const earlierInput = earlier;
+		const startBtn = start;
+		const progressEl = progress;
+		const encourageEl = encourage;
+		const signBoxEl = signBox;
+		const resultTextEl = resultText;
+		const noticeBtn = notice;
+		const unsureBtn = unsure;
+
+		let signs = signsForGroup('preschool', false);
+		let index = 0;
+		let noticed = 0;
+
+		function selectedGroup(): AgeGroup {
+			const checked = root.querySelector<HTMLInputElement>('input[name="warning-age"]:checked');
+			return (checked?.value as AgeGroup | undefined) ?? 'preschool';
+		}
+
+		function syncEarlier() {
+			const group = selectedGroup();
+			const needsEarlier = group === 'high-school' || group === 'adulthood';
+			earlierWrapEl.hidden = !needsEarlier;
+		}
+
+		function renderSign() {
+			const sign = signs[index];
+			if (!sign) {
+				return;
+			}
+			progressEl.textContent = `Sign ${index + 1} of ${signs.length}`;
+			encourageEl.textContent = index === 0 ? 'Take your time.' : encouragement[index % encouragement.length];
+			const details = sign.details?.length
+				? `<ul>${sign.details.map((item) => `<li>${item}</li>`).join('')}</ul>`
+				: '';
+			signBoxEl.innerHTML = `<p>${sign.text}</p>${details}`;
+		}
+
+		function finish() {
+			playEl.hidden = true;
+			resultEl.hidden = false;
+			resultTextEl.textContent =
+				noticed >= 3
+					? 'Students with three or more of the warning signs are encouraged to learn more about Dyslexia.'
+					: 'You can still learn more about Dyslexia in the resources below, or set up a free meeting.';
+		}
+
+		function answer(didNotice: boolean) {
+			if (didNotice) {
+				noticed += 1;
+			}
+			index += 1;
+			if (index >= signs.length) {
+				finish();
+				return;
+			}
+			renderSign();
+		}
+
+		root.querySelectorAll<HTMLInputElement>('input[name="warning-age"]').forEach((input) => {
+			input.addEventListener('change', syncEarlier);
+		});
+		startBtn.addEventListener('click', () => {
+			const group = selectedGroup();
+			const includeEarlier =
+				(group === 'high-school' || group === 'adulthood') && earlierInput.checked;
+			signs = signsForGroup(group, includeEarlier);
+			index = 0;
+			noticed = 0;
+			setupEl.hidden = true;
+			playEl.hidden = false;
+			resultEl.hidden = true;
+			renderSign();
+		});
+		noticeBtn.addEventListener('click', () => answer(true));
+		unsureBtn.addEventListener('click', () => answer(false));
+		syncEarlier();
+	}
+
+	document.querySelectorAll<HTMLElement>('[data-warning-game]').forEach(setupGame);
+</script>
