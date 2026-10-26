@@ -79,7 +79,7 @@ Goal: logo options, rebuilt offer icons, and a placeholder image component so pa
 - **Goal:** Erin can pick a mark.
 - **Do:** New symbol only — do not refresh the book/flowers. Explore letter-tile / word-building and a simple monogram. Education + fun, kid-friendly, calm. Teal / coral / cream. SVG with accessible title. Must read at favicon size and in the nav.
 - **Accept:** 2–3 options presented. Wordmark “Trapp Tutoring” is live text or titled SVG. No essential words in a raster.
-- **Status:** `done` — Three SVG options at `/logo-options` (not in nav): A letter tiles, B word-building, C TT monogram. Live-text wordmark. Accessible `<title>` on each mark. No rasters. No final mark picked (O-02). Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
+- **Status:** `done` — Three SVG options at `/logo-options` (not in nav): A Steps, B Lamp, C Together (ink + honey; no letters, no teal/coral tiles). Live-text wordmark. Accessible `<title>` on each mark. No final mark picked (O-02). Interim user whale now in the nav/favicon (original + clean no-splatter + square icon on `/logo-options`; name stays live text). Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
 
 ### P2-02 — Offer icons (five)
 

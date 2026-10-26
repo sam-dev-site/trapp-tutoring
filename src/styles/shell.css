@@ -35,9 +35,19 @@
 }
 
 .wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   color: var(--color-ink);
   font-weight: 700;
   text-decoration: none;
+}
+
+.wordmark-mark {
+  display: block;
+  width: 2.75rem;
+  height: 2.75rem;
+  object-fit: contain;
 }
 
 .wordmark:hover {

@@ -1,0 +1,44 @@
+---
+interface Props {
+	size?: number;
+}
+
+const { size = 64 } = Astro.props;
+
+const ink = '#123832';
+const honey = '#c17f2e';
+---
+
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	width={size}
+	height={size}
+	viewBox="0 0 32 32"
+	role="img"
+>
+	<title>Trapp Tutoring logo option: stepping stones</title>
+	<ellipse
+		cx="8.1"
+		cy="22.5"
+		rx="4.45"
+		ry="3.7"
+		fill={ink}
+		transform="rotate(-20 8.1 22.5)"
+	/>
+	<ellipse
+		cx="15.8"
+		cy="16"
+		rx="4.75"
+		ry="3.9"
+		fill={ink}
+		transform="rotate(-20 15.8 16)"
+	/>
+	<ellipse
+		cx="23.7"
+		cy="9.3"
+		rx="5.05"
+		ry="4.1"
+		fill={honey}
+		transform="rotate(-20 23.7 9.3)"
+	/>
+</svg>

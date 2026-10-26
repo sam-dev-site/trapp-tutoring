@@ -1,0 +1,26 @@
+---
+interface Props {
+	size?: number;
+}
+
+const { size = 64 } = Astro.props;
+
+const ink = '#123832';
+const honey = '#c17f2e';
+---
+
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	width={size}
+	height={size}
+	viewBox="0 0 32 32"
+	role="img"
+>
+	<title>Trapp Tutoring logo option: a lamp and a pool of light</title>
+	<rect x="14.2" y="4.4" width="3.6" height="3.2" rx="1.1" fill={ink} />
+	<path
+		d="M11.5 7.2h9c.82 0 1.52.58 1.74 1.38l4.2 7.7c.28.52-.1 1.12-.68 1.12H6.24c-.58 0-.96-.6-.68-1.12l4.2-7.7c.22-.8.92-1.38 1.74-1.38z"
+		fill={ink}
+	/>
+	<ellipse cx="16" cy="21.15" rx="7.8" ry="3.85" fill={honey} />
+</svg>

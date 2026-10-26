@@ -1,0 +1,26 @@
+---
+interface Props {
+	size?: number;
+}
+
+const { size = 64 } = Astro.props;
+
+const ink = '#123832';
+const honey = '#c17f2e';
+---
+
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	width={size}
+	height={size}
+	viewBox="0 0 32 32"
+	role="img"
+>
+	<title>Trapp Tutoring logo option: two rings meeting</title>
+	<circle cx="12.15" cy="16" r="7.85" fill="none" stroke={ink} stroke-width="2.7" />
+	<circle cx="19.85" cy="16" r="7.85" fill="none" stroke={ink} stroke-width="2.7" />
+	<path
+		d="M16 9.05A7.85 7.85 0 0 1 16 22.95A7.85 7.85 0 0 1 16 9.05Z"
+		fill={honey}
+	/>
+</svg>

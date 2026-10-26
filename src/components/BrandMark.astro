@@ -1,0 +1,19 @@
+---
+interface Props {
+	href?: string;
+}
+
+const { href = '/' } = Astro.props;
+const markSrc = `${import.meta.env.BASE_URL}images/logo/whale-icon.jpg`;
+---
+
+<a class="wordmark" href={href}>
+	<img
+		class="wordmark-mark"
+		src={markSrc}
+		alt=""
+		width="48"
+		height="48"
+	/>
+	<span>Trapp Tutoring</span>
+</a>

@@ -1,84 +1,158 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import LogoMonogram from '../components/logo/LogoMonogram.astro';
-import LogoTiles from '../components/logo/LogoTiles.astro';
-import LogoWordbuild from '../components/logo/LogoWordbuild.astro';
+import LogoLamp from '../components/logo/LogoLamp.astro';
+import LogoSteps from '../components/logo/LogoSteps.astro';
+import LogoTogether from '../components/logo/LogoTogether.astro';
 import '../styles/logo-options.css';
+
+const originalSrc = `${import.meta.env.BASE_URL}images/logo/whale-original.jpg`;
+const cleanSrc = `${import.meta.env.BASE_URL}images/logo/whale-clean.jpg`;
+const iconSrc = `${import.meta.env.BASE_URL}images/logo/whale-icon.jpg`;
 ---
 
 <BaseLayout title="Logo options — Trapp Tutoring">
 	<h1>Logo options</h1>
 	<p>
-		Three new marks for Erin to pick. None is final. The wordmark is live text, not
-		inside the picture. These are not the old book-and-flowers mark.
+		Three new marks. None uses a TT (or any letters in the symbol — late-elementary
+		kids will find the joke). None uses stacked teal-and-coral tiles, which were
+		reading as Christmas blocks.
 	</p>
+	<p>
+		The name stays live text beside the mark. The color shift is deliberate: deep
+		ink plus a honey accent. Warm, not red-and-green. Cream is the page, not a
+		third block.
+	</p>
+
+	<article class="logo-option">
+		<h2>Interim mark — whale with a book</h2>
+		<p>
+			In use in the nav for now. The name stays live text. Not a final pick. The
+			nav and favicon use the clean crop (no splatters).
+		</p>
+		<div class="logo-previews">
+			<div class="logo-preview">
+				<div class="logo-whale-frame">
+					<img
+						class="logo-whale-wide"
+						src={originalSrc}
+						alt="Original whale drawing with small dots and leaves around it"
+					/>
+				</div>
+				<span>Original</span>
+			</div>
+			<div class="logo-preview">
+				<div class="logo-whale-frame">
+					<img
+						class="logo-whale-wide"
+						src={cleanSrc}
+						alt="Same whale and book, no splatters"
+					/>
+				</div>
+				<span>Clean (no splatters)</span>
+			</div>
+			<div class="logo-preview">
+				<div class="logo-whale-frame">
+					<img
+						class="logo-whale-icon"
+						src={iconSrc}
+						alt="Square crop of the whale and book, no splatters"
+					/>
+				</div>
+				<span>Icon / nav</span>
+			</div>
+		</div>
+	</article>
+
+	<div class="logo-swatches" aria-label="Logo colors">
+		<div class="logo-swatch">
+			<span class="logo-swatch-chip" style="background:#123832"></span>
+			<span>Ink #123832</span>
+		</div>
+		<div class="logo-swatch">
+			<span class="logo-swatch-chip" style="background:#c17f2e"></span>
+			<span>Honey #C17F2E</span>
+		</div>
+		<div class="logo-swatch">
+			<span class="logo-swatch-chip logo-swatch-chip-cream"></span>
+			<span>Cream #F4EFE6</span>
+		</div>
+	</div>
 
 	<div class="logo-options">
 		<article class="logo-option">
-			<h2>Option A — Letter tiles</h2>
-			<p>Two tiles, each with a T. Teal and coral, slightly stacked.</p>
+			<h2>Option A — Steps</h2>
+			<p>
+				Three stones on a climb, the last one honey. Barton is sequential: one
+				sound, then the next. A path without letters or tiles.
+			</p>
 			<div class="logo-previews">
 				<div class="logo-preview">
-					<LogoTiles size={96} />
+					<LogoSteps size={96} />
 					<span>Large</span>
 				</div>
 				<div class="logo-preview">
-					<LogoTiles size={32} />
+					<LogoSteps size={32} />
 					<span>Nav (32)</span>
 				</div>
 				<div class="logo-preview">
-					<LogoTiles size={16} />
+					<LogoSteps size={16} />
 					<span>Favicon (16)</span>
 				</div>
 			</div>
 			<div class="logo-wordmark-row">
-				<LogoTiles size={32} />
+				<LogoSteps size={32} />
 				<p>Trapp Tutoring</p>
 			</div>
 		</article>
 
 		<article class="logo-option">
-			<h2>Option B — Word-building</h2>
-			<p>Three tiles in a step, like building a word. The middle tile holds a T.</p>
+			<h2>Option B — Lamp</h2>
+			<p>
+				A shade and a pool of light. Sit down, turn on the lamp, read together.
+				Warmth and guidance, without a classroom poster.
+			</p>
 			<div class="logo-previews">
 				<div class="logo-preview">
-					<LogoWordbuild size={96} />
+					<LogoLamp size={96} />
 					<span>Large</span>
 				</div>
 				<div class="logo-preview">
-					<LogoWordbuild size={32} />
+					<LogoLamp size={32} />
 					<span>Nav (32)</span>
 				</div>
 				<div class="logo-preview">
-					<LogoWordbuild size={16} />
+					<LogoLamp size={16} />
 					<span>Favicon (16)</span>
 				</div>
 			</div>
 			<div class="logo-wordmark-row">
-				<LogoWordbuild size={32} />
+				<LogoLamp size={32} />
 				<p>Trapp Tutoring</p>
 			</div>
 		</article>
 
 		<article class="logo-option">
-			<h2>Option C — Monogram</h2>
-			<p>A calm TT inside a rounded square. Teal bar, coral second stem.</p>
+			<h2>Option C — Together</h2>
+			<p>
+				Two rings and the space they share. One-to-one tutoring: tutor and student
+				meeting in the middle. The honey lens is the session.
+			</p>
 			<div class="logo-previews">
 				<div class="logo-preview">
-					<LogoMonogram size={96} />
+					<LogoTogether size={96} />
 					<span>Large</span>
 				</div>
 				<div class="logo-preview">
-					<LogoMonogram size={32} />
+					<LogoTogether size={32} />
 					<span>Nav (32)</span>
 				</div>
 				<div class="logo-preview">
-					<LogoMonogram size={16} />
+					<LogoTogether size={16} />
 					<span>Favicon (16)</span>
 				</div>
 			</div>
 			<div class="logo-wordmark-row">
-				<LogoMonogram size={32} />
+				<LogoTogether size={32} />
 				<p>Trapp Tutoring</p>
 			</div>
 		</article>
