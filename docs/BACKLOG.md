@@ -147,18 +147,21 @@ Goal: the remaining content pages, inventory wording + light edits.
 - **Goal:** What classes are like, tech, who can start.
 - **Do:** Hero + meeting buttons. Five icon facts from the inventory (use P2-02). Tech list (Chromebooks, not “Chrome books”). **Who is this for?** (not “Who can tutor?”). “each student receives.” Duration uses the locked two-to-three-years sentence if this page mentions program length. Repeat meeting buttons. Koala Go → `https://www.teachwithkoala.com/`. Speed test → `https://www.speedtest.net/`.
 - **Accept:** No pricing. No city/state. Eligibility matches the inventory (age 5 / kindergarten, spoken English, screening). No diagnosis required.
+- **Status:** `done` — Hero + meeting buttons + teaching placeholder (not a child-at-laptop). Five offer-icon facts; “each student receives”; locked two-to-three-years sentence; Chromebooks; **Who is this for?** with age 5 / kindergarten, spoken English, screening; no diagnosis required. Koala Go and Speedtest links. No pricing or city/state. Repeated CTA in `#meeting`. Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
 
 ### P4-02 — Barton
 
 - **Goal:** What the system is, 10 levels, official links, a CTA.
 - **Do:** Intro from inventory (“It takes and average” → locked duration sentence). All 10 level names, no per-level essays. Links: `https://bartonreading.com/` and scope `https://bartonreading.com/faqs/#scope`. Meeting buttons (this page currently has none). Never “Barton-certified.”
 - **Accept:** Levels match the inventory names. Meeting CTA is obvious. Duration sentence is the locked one.
+- **Status:** `done` — Inventory intro; locked two-to-three-years sentence; all 10 level names; `bartonreading.com` and scope FAQ link. Meeting trio in `#meeting`. No “Barton-certified.” Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
 
 ### P4-03 — Login
 
 - **Goal:** Current families can reach TutorBird without confusion.
 - **Do:** Thin page. One sentence (scheduling and payments). One button to `https://app.tutorbird.com/` with `target="_blank"` and `rel="noopener noreferrer"`. Visible text that it opens in a new tab / leaves this site.
 - **Accept:** Button has new-tab behavior **and** visible new-tab text. No embed, no TutorBird branding beyond the destination.
+- **Status:** `done` — Thin Login page: scheduling-and-payments sentence; button to `https://app.tutorbird.com/` with `target="_blank"` and `rel="noopener noreferrer"`; visible “opens in a new tab and leaves this site.” No embed. Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
 
 ---
 

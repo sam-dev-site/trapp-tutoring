@@ -1,7 +1,135 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import MeetingButtons from '../components/MeetingButtons.astro';
+import OfferIcon from '../components/OfferIcon.astro';
+import '../styles/tutoring.css';
 ---
 
 <BaseLayout title="Tutoring With Me — Trapp Tutoring">
-	<h1>Tutoring With Me</h1>
+	<section class="tutoring-hero">
+		<div>
+			<h1>Tutoring With Me</h1>
+			<MeetingButtons />
+		</div>
+		<ImagePlaceholder shot="teaching" />
+	</section>
+
+	<section class="tutoring-facts" aria-labelledby="tutoring-facts-heading">
+		<h2 id="tutoring-facts-heading">What is learning with Trapp Tutoring like?</h2>
+		<ul class="tutoring-fact-list">
+			<li class="tutoring-fact">
+				<OfferIcon name="one-on-one" />
+				<div>
+					<h3>One-On-One</h3>
+					<p>
+						The Barton Reading &amp; Spelling System is designed for consistent, one-on-one
+						instruction to see the best results and ensure that each student receives the
+						needed support.
+					</p>
+				</div>
+			</li>
+			<li class="tutoring-fact">
+				<OfferIcon name="remote" />
+				<div>
+					<h3>Fully Remote</h3>
+					<p>
+						I teach entirely online so I can meet with students no matter where they live. My
+						schedule is flexible to meet the needs of your busy life!
+					</p>
+				</div>
+			</li>
+			<li class="tutoring-fact">
+				<OfferIcon name="interactive" />
+				<div>
+					<h3>Interactive and Multisensory</h3>
+					<p>
+						I use <a href="https://www.teachwithkoala.com/">Koala Go</a> as my teaching
+						platform because it provides a highly interactive remote teaching option. Koala Go
+						allows me to teach the same content in a gamified, engaging way! You do not need
+						an account; I will simply send you a link to my classroom.
+					</p>
+				</div>
+			</li>
+			<li class="tutoring-fact">
+				<OfferIcon name="barton" />
+				<div>
+					<h3>Barton System</h3>
+					<p>
+						The Barton Reading &amp; Spelling System is intentionally structured for crucial
+						building blocks of reading and spelling to be learned in an effective sequence. It
+						is an Orton-Gillingham based intervention for reading and spelling, comprised of
+						10 levels. It takes most students about two to three years to complete all ten
+						levels, and the pace depends on the student.
+					</p>
+				</div>
+			</li>
+			<li class="tutoring-fact">
+				<OfferIcon name="weekly" />
+				<div>
+					<h3>Multiple Times per Week</h3>
+					<p>
+						To see the best results, it is important to have tutoring 2-3 times each week so
+						that the learned skills are not forgotten, but rather can be built upon to see
+						impressive improvement. Classes are typically 50 minutes, but modifications can be
+						made based on the needs of the student.
+					</p>
+				</div>
+			</li>
+		</ul>
+	</section>
+
+	<section class="tutoring-tech" aria-labelledby="tutoring-tech-heading">
+		<h2 id="tutoring-tech-heading">What do you need to start tutoring?</h2>
+		<ul class="tutoring-tech-list">
+			<li>
+				<h3>Reliable Internet</h3>
+				<p>
+					For Koala Go to be supported, you need a download and upload speed of at least 30
+					Mbps download / 5 Mbps upload. You can check your speed
+					<a href="https://www.speedtest.net/">here</a>.
+				</p>
+			</li>
+			<li>
+				<h3>Computer, Chromebook, or iPad</h3>
+				<p>
+					Koala Go is compatible with all computers, Chromebooks, and iPads. At this time,
+					tutoring is not possible via iPhone.
+				</p>
+			</li>
+			<li>
+				<h3>Webcam</h3>
+				<p>If your computer has a built-in webcam, that will work just fine!</p>
+			</li>
+			<li>
+				<h3>Headset with mouthpiece (preferred)</h3>
+				<p>
+					Both the student and I will be working with important sound distinctions, so a headset
+					helps to ensure that everyone is understood clearly and the sounds are learned
+					correctly.
+				</p>
+			</li>
+			<li>
+				<h3>Computer mouse (preferred)</h3>
+				<p>
+					Because my tutoring style is highly interactive, students will be manipulating objects
+					on the screen a lot. A mouse may facilitate manipulation, especially for younger kids.
+				</p>
+			</li>
+		</ul>
+	</section>
+
+	<section class="tutoring-who" aria-labelledby="tutoring-who-heading">
+		<h2 id="tutoring-who-heading">Who is this for?</h2>
+		<p>
+			Trapp Tutoring is created for any student who is struggling with reading and writing. No
+			official diagnosis of Dyslexia is required. In order to successfully use the Barton system,
+			the student must:
+		</p>
+		<ul class="tutoring-who-list">
+			<li>be at least 5 years old and in kindergarten.</li>
+			<li>speak and comprehend spoken English.</li>
+			<li>pass a short student screening that I will administer before we begin tutoring.</li>
+		</ul>
+	</section>
 </BaseLayout>

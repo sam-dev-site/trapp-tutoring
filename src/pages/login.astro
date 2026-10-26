@@ -1,7 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/login.css';
 ---
 
 <BaseLayout title="Login — Trapp Tutoring">
-	<h1>Login</h1>
+	<section class="login-page">
+		<h1>Login</h1>
+		<p>Students working with me use this button for scheduling and payments.</p>
+		<a
+			class="meeting-button"
+			href="https://app.tutorbird.com/"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			Go to scheduling and payments
+		</a>
+		<p class="login-leave-note">This opens in a new tab and leaves this site.</p>
+	</section>
 </BaseLayout>

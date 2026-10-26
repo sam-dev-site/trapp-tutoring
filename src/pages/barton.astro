@@ -1,7 +1,55 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/barton.css';
+
+const levels = [
+	'Phonemic Awareness',
+	'Consonants & Short Vowels',
+	'Closed & Unit Syllables',
+	'Multi-Syllable Words & Vowel Teams',
+	'Prefixes & Suffixes',
+	'Reasons for Silent-E',
+	"Vowel-R's",
+	'Advanced Vowel Teams',
+	'Influence of Foreign Languages',
+	'Latin Roots & Greek Combining Forms',
+] as const;
 ---
 
 <BaseLayout title="Barton — Trapp Tutoring">
-	<h1>Barton</h1>
+	<h1>The Barton Reading &amp; Spelling System</h1>
+
+	<section class="barton-intro">
+		<p>
+			The good news is, people with Dyslexia can learn how to spell and read! The Barton Reading
+			&amp; Spelling System is a structured literacy program that is Orton-Gillingham influenced. It
+			is a multi-sensory, direct, explicit, and sequential program designed for intense
+			intervention. Read
+			<a href="https://bartonreading.com/">here</a>
+			about how this Orton-Gillingham based approach works!
+		</p>
+	</section>
+
+	<section class="barton-levels" aria-labelledby="barton-levels-heading">
+		<h2 id="barton-levels-heading">Overview of Barton Levels</h2>
+		<p>
+			The Barton system is comprised of ten levels. Most students will start in level one, but I
+			will give a screener to help determine the best place to start with each person. It takes
+			most students about two to three years to complete all ten levels, and the pace depends on
+			the student.
+		</p>
+		<ol>
+			{
+				levels.map((name, i) => (
+					<li>
+						Level {i + 1}: {name}
+					</li>
+				))
+			}
+		</ol>
+		<p>
+			For a more in-depth look at what is taught in each level, click
+			<a href="https://bartonreading.com/faqs/#scope">here</a>.
+		</p>
+	</section>
 </BaseLayout>
