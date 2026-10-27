@@ -4,9 +4,7 @@
   margin: 0 0 1.25rem;
   padding: 2rem 1.25rem 2.5rem;
   border-radius: var(--radius-tile);
-  background:
-    radial-gradient(circle at 92% 16%, rgb(212 104 74 / 0.16), transparent 30%),
-    linear-gradient(165deg, #e4efe9 0%, var(--color-cream) 62%, #f7e8df 100%);
+  background: var(--color-mint);
 }
 
 .dyslexia-hero .image-placeholder {
@@ -21,10 +19,7 @@
 }
 
 .dyslexia-resources {
-  background:
-    radial-gradient(circle at 8% 88%, rgb(22 90 84 / 0.1), transparent 34%),
-    radial-gradient(circle at 96% 10%, rgb(212 104 74 / 0.12), transparent 28%),
-    linear-gradient(180deg, #e8f0ea 0%, var(--color-cream) 70%);
+  background: var(--color-mint);
 }
 
 .dyslexia-resource-list {

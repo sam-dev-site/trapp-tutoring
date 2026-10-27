@@ -15,22 +15,32 @@ interface Props {
 }
 
 const { title = 'Trapp Tutoring', mainClass, showMeeting = true } = Astro.props;
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const faviconSrc = `${import.meta.env.BASE_URL}images/logo/whale-icon.jpg`;
+const baseUrl = import.meta.env.BASE_URL;
+const faviconSrc = `${baseUrl}images/logo/whale-icon.jpg`;
+const basePrefix = baseUrl.replace(/\/$/, '');
+const rawPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const path =
+	basePrefix && (rawPath === basePrefix || rawPath.startsWith(`${basePrefix}/`))
+		? rawPath.slice(basePrefix.length) || '/'
+		: rawPath;
 
 const links = [
-	{ href: '/', label: 'Home' },
-	{ href: '/tutoring-with-me', label: 'Tutoring With Me' },
-	{ href: '/dyslexia', label: 'Dyslexia' },
-	{ href: '/barton', label: 'Barton' },
-	{ href: '/login', label: 'Login' },
+	{ route: '/', label: 'Home' },
+	{ route: '/tutoring-with-me', label: 'Tutoring With Me' },
+	{ route: '/dyslexia', label: 'Dyslexia' },
+	{ route: '/barton', label: 'Barton' },
+	{ route: '/login', label: 'Login' },
 ] as const;
 
-function isCurrent(href: string) {
-	if (href === '/') {
+function hrefFor(route: string) {
+	return route === '/' ? baseUrl : `${baseUrl}${route.slice(1)}`;
+}
+
+function isCurrent(route: string) {
+	if (route === '/') {
 		return path === '/';
 	}
-	return path === href;
+	return path === route;
 }
 ---
 
@@ -39,8 +49,8 @@ function isCurrent(href: string) {
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/jpeg" href={faviconSrc} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
+		<link rel="icon" href={`${baseUrl}favicon.ico`} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -54,7 +64,7 @@ function isCurrent(href: string) {
 					{
 						links.map((link) => (
 							<li>
-								<a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>
+								<a href={hrefFor(link.route)} aria-current={isCurrent(link.route) ? 'page' : undefined}>
 									{link.label}
 								</a>
 							</li>
@@ -62,7 +72,7 @@ function isCurrent(href: string) {
 					}
 				</ul>
 			</nav>
-			<a class="meeting-nav" href={showMeeting ? '#meeting' : `${import.meta.env.BASE_URL}#meeting`}>Set up a meeting</a>
+			<a class="meeting-nav" href={showMeeting ? '#meeting' : `${baseUrl}#meeting`}>Set up a meeting</a>
 		</header>
 		<main id="main" class={mainClass} tabindex="-1">
 			<slot />

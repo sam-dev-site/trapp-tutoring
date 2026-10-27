@@ -4,9 +4,7 @@
   margin: 0 0 1.5rem;
   padding: 2rem 1.25rem 2.5rem;
   border-radius: var(--radius-tile);
-  background:
-    radial-gradient(circle at 90% 18%, rgb(212 104 74 / 0.16), transparent 30%),
-    linear-gradient(165deg, #e4efe9 0%, var(--color-cream) 62%, #f7e8df 100%);
+  background: var(--color-mint);
 }
 
 .tutoring-hero .meeting-buttons {

@@ -11,10 +11,7 @@
   padding: 1rem 1.25rem;
   overflow: hidden;
   color: var(--color-cream);
-  background:
-    radial-gradient(circle at 92% -20%, rgb(212 104 74 / 0.34), transparent 36%),
-    radial-gradient(circle at 8% 120%, rgb(244 239 230 / 0.12), transparent 32%),
-    var(--color-teal);
+  background: var(--color-teal);
 }
 
 .site-header .wordmark {
@@ -102,10 +99,7 @@
   max-width: none;
   margin: 0;
   padding: 2.5rem 1.25rem 3rem;
-  background:
-    radial-gradient(circle at 12% 82%, rgb(22 90 84 / 0.12), transparent 34%),
-    radial-gradient(circle at 88% 8%, rgb(212 104 74 / 0.16), transparent 30%),
-    linear-gradient(180deg, #e8f0ea 0%, var(--color-cream) 72%);
+  background: var(--color-mint);
 }
 
 .meeting-section h2,
