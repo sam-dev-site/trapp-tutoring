@@ -66,6 +66,11 @@ p {
   max-width: var(--measure);
 }
 
+.phrase-link {
+  padding-inline: 0.15em;
+  text-underline-offset: 0.2em;
+}
+
 main {
   box-sizing: border-box;
   max-width: var(--measure);

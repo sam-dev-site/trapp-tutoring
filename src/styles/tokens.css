@@ -28,6 +28,7 @@
   --color-action-bg: var(--color-ink);
   --color-action-fg: var(--color-cream);
   --color-feedback: var(--color-teal);
+  --radius-tile: 0.85rem;
 }
 
 html {

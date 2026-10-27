@@ -11,3 +11,8 @@
 .barton-levels li {
   margin: 0.5rem 0;
 }
+
+.phrase-link {
+  padding-inline: 0.15em;
+  text-underline-offset: 0.2em;
+}

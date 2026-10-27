@@ -49,7 +49,7 @@ Login               Thin hop to TutorBird
 **Removed as pages:** About, Contact.  
 **Not in v1:** site search, Privacy, Terms, photo-release.
 
-**Footer:** branded (wordmark + meeting buttons + short nav). No legal links in v1.
+**Footer:** branded wordmark only. Nav stays in the top header; Email / Text / Call stay in the meeting section. No legal links in v1.
 
 ```mermaid
 flowchart TD
@@ -70,7 +70,7 @@ Air Reading **structure only:** logo left; text links Home · Tutoring With Me �
 
 - That filled action scrolls to the in-page meeting section. Never a modal.
 - Current page gets the underline treatment.
-- Mobile: in-flow disclosure menu (not a focus-trapping overlay). Owner said no pop-ups.
+- Links stay visible in the top header at every width (they wrap; not a Menu, not a pop-up).
 - Do not copy Reading Guru’s long multi-row nav.
 
 ### Meeting pattern

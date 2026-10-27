@@ -59,7 +59,7 @@ Goal: a running Astro repo on GitHub with tokens, type, and the meeting-button p
 - **Goal:** Air Reading structure on desktop; in-flow menu on small screens.
 - **Do:** Logo left; Home · Tutoring With Me · Dyslexia · Barton · Login; filled **Set up a meeting** on the right. Mobile menu expands in document flow — not a focus-trapping overlay, not a pop-up. Current-page underline. Underline animation respects `prefers-reduced-motion`.
 - **Accept:** Usable at 320px, no horizontal scroll. Menu is keyboard-reachable. Reduced-motion: underline does not slide. “Set up a meeting” scrolls to `#meeting` (or equivalent), never opens a modal.
-- **Status:** `done` — Air Reading row on desktop; in-flow `<details>` Menu on small screens (not a modal). Nav labels Home · Tutoring With Me · Dyslexia · Barton · Login. Meeting control is `href="#meeting"` (no dialog). Current page uses `aria-current` + underline. Reduced-motion: underline transition `none`. Verified `npm run build` / `npm run check`; 320px no horizontal scroll; Menu opens in document flow.
+- **Status:** `done` — Air Reading top row: logo, visible links (Home · Tutoring With Me · Dyslexia · Barton · Login), filled Set up a meeting. Links stay in the header (not a Menu, not a footer copy). Meeting control is `href="#meeting"` (no dialog). Current page uses `aria-current` + underline. Reduced-motion: underline transition `none`. Header is sticky.
 
 ### P1-06 — Meeting-button component
 
@@ -104,23 +104,23 @@ Goal: the hub page works end to end, including gallery and meeting section.
 ### P3-01 — Footer
 
 - **Goal:** Branded closer without legal pages.
-- **Do:** Wordmark, meeting buttons, short nav. No Privacy / Terms / photo-release links.
+- **Do:** Wordmark only. No second nav or second meeting trio. No Privacy / Terms / photo-release links.
 - **Accept:** Footer on every page. No invented address, hours, or city/state.
-- **Status:** `done` — Footer on every page: wordmark, short nav (Home · Tutoring With Me · Dyslexia · Barton · Login), Email / Text / Call. No Privacy / Terms / photo-release. No address, hours, or city/state. Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
+- **Status:** `done` — Footer on every page: wordmark only. Nav stays in the top header; Email / Text / Call stay in `#meeting` so the closer is not a second copy of either. No Privacy / Terms / photo-release. No address, hours, or city/state.
 
 ### P3-02 — Home hero
 
 - **Goal:** Reading Guru energy, not their look.
 - **Do:** Large live-text headline, generous space, placeholder image (P2-03). Tagline as HTML: `Effective · Interactive · Research-based`. Not inside a graphic. Not a generic child-at-laptop stock photo. Not Reading Guru mint/type.
 - **Accept:** Headline and tagline are selectable text. Hero is welcoming on mobile and desktop.
-- **Status:** `done` — Live H1 “Reading and Spelling Intervention”; tagline `Effective · Interactive · Research-based` as HTML; hero placeholder (P2-03). Cream/ink, not Reading Guru mint. Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
+- **Status:** `done` — Live H1 “Reading and Spelling Intervention”; tagline as HTML; interim full whale with replacement label. Soft teal-to-cream wash, decorative letter tiles, CSS word/float motion (off under reduced-motion), coral flourish, hero jump to `#meeting`. Not Reading Guru mint.
 
 ### P3-03 — Home intro + About accordion
 
 - **Goal:** Short Erin intro; full story behind an expand control.
 - **Do:** Current Home paragraph. Accordion holds inventory About bio + philosophy with the three fact fixes (K-12 teacher, Barton-trained, six years). Keyboard-friendly disclosure. No other bio rewrite.
 - **Accept:** Closed by default. Full story is reachable by keyboard. No “licensed.” No “certified.” No “four years.”
-- **Status:** `done` — Home intro from inventory (Barton link). In-flow `<details>` “More about Erin” closed by default. Bio + philosophy with K-12 (not licensed), six years, Barton-trained (not certified). No “four years.” Verified `npm run build` / `npm run check`; keyboard open; desktop + 320px, no horizontal scroll.
+- **Status:** `done` — Home intro from inventory. About headshot placeholder stays visible next to a `+` / `−` control labeled “More about Erin” plus “Open to read Erin’s story.” Bio + philosophy with K-12, six years, Barton-trained. No “licensed,” “certified,” or “four years.”
 
 ### P3-04 — Testimonial gallery
 
@@ -134,7 +134,7 @@ Goal: the hub page works end to end, including gallery and meeting section.
 - **Goal:** The one action, plus labeled doors to the other pages.
 - **Do:** `#meeting` with the meeting trio and free-meeting copy direction. Three paths (Tutoring With Me, Dyslexia, Barton) that say what the visitor will find.
 - **Accept:** Nav “Set up a meeting” lands here. Paths are clear before click. No waitlist language.
-- **Status:** `done` — `#meeting` already has the trio and free-meeting sentence. Home paths to Tutoring With Me, Dyslexia, and Barton say what each page is for. No waitlist. Nav “Set up a meeting” lands on `#meeting`. Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
+- **Status:** `done` — `#meeting` has the trio and free-meeting sentence. Home hero also jumps there. The “More on this site” path cards were removed as redundant with the top nav. No waitlist.
 
 ---
 
@@ -154,14 +154,14 @@ Goal: the remaining content pages, inventory wording + light edits.
 - **Goal:** What the system is, 10 levels, official links, a CTA.
 - **Do:** Intro from inventory (“It takes and average” → locked duration sentence). All 10 level names, no per-level essays. Links: `https://bartonreading.com/` and scope `https://bartonreading.com/faqs/#scope`. Meeting buttons (this page currently has none). Never “Barton-certified.”
 - **Accept:** Levels match the inventory names. Meeting CTA is obvious. Duration sentence is the locked one.
-- **Status:** `done` — Inventory intro; locked two-to-three-years sentence; all 10 level names; `bartonreading.com` and scope FAQ link. Meeting trio in `#meeting`. No “Barton-certified.” Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
+- **Status:** `done` — Inventory intro; locked two-to-three-years sentence; all 10 level names. Phrase links (not the word “here”) to `bartonreading.com` and the scope FAQ. Meeting trio in `#meeting`. No “Barton-certified.”
 
 ### P4-03 — Login
 
 - **Goal:** Current families can reach TutorBird without confusion.
 - **Do:** Thin page. One sentence (scheduling and payments). One button to `https://app.tutorbird.com/` with `target="_blank"` and `rel="noopener noreferrer"`. Visible text that it opens in a new tab / leaves this site.
 - **Accept:** Button has new-tab behavior **and** visible new-tab text. No embed, no TutorBird branding beyond the destination.
-- **Status:** `done` — Thin Login page: scheduling-and-payments sentence; button to `https://app.tutorbird.com/` with `target="_blank"` and `rel="noopener noreferrer"`; visible “opens in a new tab and leaves this site.” No embed. Verified `npm run build` / `npm run check`; desktop + 320px, no horizontal scroll.
+- **Status:** `done` — Thin Login page: scheduling-and-payments sentence; TutorBird button with new-tab text. No `#meeting` block on this page; header “Set up a meeting” goes to Home `#meeting`. No embed.
 
 ---
 
@@ -201,7 +201,7 @@ Goal: swap what we have, then prove accessibility and mobile.
 - **Goal:** Real images where Erin has sent them.
 - **Do:** Replace P2-03 slots. Write meaningful alt text. Student faces are allowed when she sends session photos. Leave remaining slots as labeled placeholders.
 - **Accept:** No empty alt. No generic laptop-kid stock. No current About Koala screenshots unless Erin chose one as a replacement.
-- **Status:** `blocked` — Erin has not sent photos (O-01). Labeled placeholders stay.
+- **Status:** `blocked` — Erin has not sent photos (O-01). Labeled placeholders stay. Home hero uses the interim whale illustration (`whale-original.jpg`) with the shot-list replacement label visible.
 
 ### P6-02 — Accessibility QA
 

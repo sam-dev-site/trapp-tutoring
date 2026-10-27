@@ -7,10 +7,24 @@ interface Props {
 	shot: PhotoShot;
 }
 
-const shots: Record<PhotoShot, { label: string; ratio: string }> = {
+const shots: Record<
+	PhotoShot,
+	{
+		label: string;
+		ratio: string;
+		interimSrc?: string;
+		interimAlt?: string;
+		interimWidth?: number;
+		interimHeight?: number;
+	}
+> = {
 	hero: {
 		label: 'Replace with: Erin hero, warm, facing camera, space around her',
 		ratio: '16 / 9',
+		interimSrc: 'images/logo/whale-original.jpg',
+		interimAlt: 'Illustration of a whale reading a book',
+		interimWidth: 1408,
+		interimHeight: 768,
 	},
 	about: {
 		label: 'Replace with: About headshot of Erin, different from the hero if possible',
@@ -31,11 +45,21 @@ const shots: Record<PhotoShot, { label: string; ratio: string }> = {
 };
 
 const { shot } = Astro.props;
-const { label, ratio } = shots[shot];
+const { label, ratio, interimSrc, interimAlt, interimWidth, interimHeight } = shots[shot];
+const src = interimSrc ? `${import.meta.env.BASE_URL}${interimSrc}` : undefined;
 ---
 
-<figure class="image-placeholder">
-	<div class="image-placeholder-frame" style={`aspect-ratio: ${ratio};`} role="img" aria-label={label}>
-		<p>{label}</p>
-	</div>
-</figure>
+{
+	src ? (
+		<figure class="image-placeholder image-placeholder-interim">
+			<img src={src} alt={interimAlt} width={interimWidth} height={interimHeight} />
+			<figcaption>{label}</figcaption>
+		</figure>
+	) : (
+		<figure class="image-placeholder">
+			<div class="image-placeholder-frame" style={`aspect-ratio: ${ratio};`} role="img" aria-label={label}>
+				<p>{label}</p>
+			</div>
+		</figure>
+	)
+}

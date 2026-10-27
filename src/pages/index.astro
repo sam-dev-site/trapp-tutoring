@@ -1,17 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroDecor from '../components/HeroDecor.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 import TestimonialGallery from '../components/TestimonialGallery.astro';
 import '../styles/home.css';
+
+const heroWords = ['Reading', 'and', 'Spelling', 'Intervention'];
 ---
 
 <BaseLayout mainClass="home-main">
 	<section class="home-hero">
-		<div>
-			<h1>Reading and Spelling Intervention</h1>
+		<HeroDecor />
+		<div class="home-hero-copy">
+			<h1 class="home-hero-title">
+				{
+					heroWords.map((word, index) => (
+						<span class="home-hero-word" style={`--word-i: ${index}`}>{word}</span>
+					))
+				}
+			</h1>
 			<p class="home-hero-tagline">Effective · Interactive · Research-based</p>
+			<a class="meeting-nav home-hero-meet" href="#meeting">Set up a meeting</a>
 		</div>
-		<ImagePlaceholder shot="hero" />
+		<div class="home-hero-art">
+			<ImagePlaceholder shot="hero" />
+		</div>
 	</section>
 
 	<section class="home-intro" aria-labelledby="home-intro-heading">
@@ -23,68 +36,52 @@ import '../styles/home.css';
 			positive learning environment.
 		</p>
 
-		<details class="home-about">
-			<summary>More about Erin</summary>
-			<div class="home-about-body">
-				<ImagePlaceholder shot="about" />
-				<p>
-					Hi, I'm Erin Trapp! I am a K-12 teacher, and I completed my BA in Teaching
-					English as a Second Language at Winona State University. My specialties are
-					Dyslexia, Literacy, ESL, Spanish, and Early Childhood Development. I have a
-					wide range of teaching experiences, including 1st grade, 7th grade literacy,
-					high school Spanish and ESL, Pre-K, as well as six years of one-on-one
-					virtual tutoring.
-				</p>
-				<p>
-					During the beginning years of my teaching career, I observed students at
-					various levels struggle with literacy. I was struck by the lack of adequate
-					support for students with Dyslexia in the traditional educational system, and
-					I wanted to become a part of the solution. I dove into studying the
-					challenges that students with Dyslexia face and discovered the importance of
-					learning an Orton-Gillingham based approach. In speaking with a Barton tutor
-					with 15+ years of experience, who later became my mentor, I was inspired by
-					the structure and proven effectiveness of the Barton Reading &amp; Spelling
-					System. Combining my years of experience in one-on-one tutoring and my
-					passion for literacy, I became a Barton-trained, full-time tutor. The ability
-					to read opens up a world of opportunities, and it is such rewarding work to
-					empower students with this skill.
-				</p>
-				<p>
-					Many students who struggle with reading have had very difficult,
-					humiliating, and demoralizing experiences in traditional educational
-					settings. It is no surprise that they would have some hesitation about
-					starting tutoring for reading and spelling! During my online sessions, I
-					strive to make the student feel safe, comfortable, encouraged, and
-					challenged. My passion is empowering students to master skills that they
-					thought were inaccessible to them and have fun while doing it!
-				</p>
-			</div>
-		</details>
+		<div class="home-about-row">
+			<ImagePlaceholder shot="about" />
+			<details class="home-about">
+				<summary>
+					<span class="home-about-mark" aria-hidden="true"></span>
+					<span class="home-about-label">
+						<span class="home-about-title">More about Erin</span>
+						<span class="home-about-cue">Open to read Erin’s story</span>
+					</span>
+				</summary>
+				<div class="home-about-body">
+					<p>
+						Hi, I'm Erin Trapp! I am a K-12 teacher, and I completed my BA in Teaching
+						English as a Second Language at Winona State University. My specialties are
+						Dyslexia, Literacy, ESL, Spanish, and Early Childhood Development. I have a
+						wide range of teaching experiences, including 1st grade, 7th grade literacy,
+						high school Spanish and ESL, Pre-K, as well as six years of one-on-one
+						virtual tutoring.
+					</p>
+					<p>
+						During the beginning years of my teaching career, I observed students at
+						various levels struggle with literacy. I was struck by the lack of adequate
+						support for students with Dyslexia in the traditional educational system, and
+						I wanted to become a part of the solution. I dove into studying the
+						challenges that students with Dyslexia face and discovered the importance of
+						learning an Orton-Gillingham based approach. In speaking with a Barton tutor
+						with 15+ years of experience, who later became my mentor, I was inspired by
+						the structure and proven effectiveness of the Barton Reading &amp; Spelling
+						System. Combining my years of experience in one-on-one tutoring and my
+						passion for literacy, I became a Barton-trained, full-time tutor. The ability
+						to read opens up a world of opportunities, and it is such rewarding work to
+						empower students with this skill.
+					</p>
+					<p>
+						Many students who struggle with reading have had very difficult,
+						humiliating, and demoralizing experiences in traditional educational
+						settings. It is no surprise that they would have some hesitation about
+						starting tutoring for reading and spelling! During my online sessions, I
+						strive to make the student feel safe, comfortable, encouraged, and
+						challenged. My passion is empowering students to master skills that they
+						thought were inaccessible to them and have fun while doing it!
+					</p>
+				</div>
+			</details>
+		</div>
 	</section>
 
 	<TestimonialGallery />
-
-	<nav class="home-paths" aria-labelledby="home-paths-heading">
-		<h2 id="home-paths-heading">More on this site</h2>
-		<ul class="home-path-list">
-			<li>
-				<a href="/tutoring-with-me">
-					<span class="home-path-title">Tutoring With Me</span>
-					<span class="home-path-note">What learning is like, what you need to start, and who this is for.</span>
-				</a>
-			</li>
-			<li>
-				<a href="/dyslexia">
-					<span class="home-path-title">Dyslexia</span>
-					<span class="home-path-note">What dyslexia is, a warning-signs activity, and resources.</span>
-				</a>
-			</li>
-			<li>
-				<a href="/barton">
-					<span class="home-path-title">Barton</span>
-					<span class="home-path-note">What the Barton Reading &amp; Spelling System is, the 10 levels, and official links.</span>
-				</a>
-			</li>
-		</ul>
-	</nav>
 </BaseLayout>
