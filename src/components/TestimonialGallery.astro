@@ -44,36 +44,59 @@ const quotes = [
 <section class="home-quotes" aria-labelledby="quotes-heading">
 	<h2 id="quotes-heading">What people say</h2>
 	<p>Here are some words from people I have worked with in the past:</p>
-	<div class="quote-gallery" data-quote-gallery>
+	<div class="quote-gallery" data-quote-gallery tabindex="0">
 		<p class="quote-status" data-quote-status aria-live="polite"></p>
-		<ul class="quote-list">
-			{
-				quotes.map((quote) => (
-					<li class="quote-item" data-quote-item>
-						<blockquote>
-							{quote.text.map((paragraph) => (
-								<p>{paragraph}</p>
-							))}
-							<footer>
-								<cite>{quote.cite}</cite>
-							</footer>
-						</blockquote>
-					</li>
-				))
-			}
-		</ul>
-		<div class="quote-controls">
-			<button type="button" data-quote-prev>Previous</button>
-			<button type="button" data-quote-next>Next</button>
+		<div class="quote-stage">
+			<button type="button" class="quote-arrow" data-quote-prev aria-label="Previous quote">
+				<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+					<path
+						d="M15.2 5.2 8.4 12l6.8 6.8"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2.4"
+						stroke-linecap="round"
+						stroke-linejoin="round"></path>
+				</svg>
+			</button>
+			<ul class="quote-list">
+				{
+					quotes.map((quote, index) => (
+						<li class:list={['quote-item', { 'is-active': index === 0 }]} data-quote-item>
+							<blockquote>
+								<p class="quote-stars" aria-hidden="true">
+									<span>★</span>
+									<span>★</span>
+									<span>★</span>
+									<span>★</span>
+									<span>★</span>
+								</p>
+								{quote.text.map((paragraph) => (
+									<p>{paragraph}</p>
+								))}
+								<footer>
+									<cite>{quote.cite}</cite>
+								</footer>
+							</blockquote>
+						</li>
+					))
+				}
+			</ul>
+			<button type="button" class="quote-arrow" data-quote-next aria-label="Next quote">
+				<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+					<path
+						d="M8.8 5.2 15.6 12l-6.8 6.8"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2.4"
+						stroke-linecap="round"
+						stroke-linejoin="round"></path>
+				</svg>
+			</button>
 		</div>
 	</div>
 </section>
 
 <script>
-	function pageSize() {
-		return window.matchMedia('(min-width: 48rem)').matches ? 2 : 1;
-	}
-
 	function setupGallery(root: HTMLElement) {
 		const items = [...root.querySelectorAll<HTMLElement>('[data-quote-item]')];
 		const statusEl = root.querySelector<HTMLElement>('[data-quote-status]');
@@ -85,39 +108,66 @@ const quotes = [
 		const status = statusEl;
 		const prev = prevBtn;
 		const next = nextBtn;
+		const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 		let index = 0;
 
-		function show() {
-			const size = pageSize();
-			const maxStart = Math.max(0, items.length - size);
-			index = Math.min(index, maxStart);
-			items.forEach((item, i) => {
-				item.hidden = i < index || i >= index + size;
-			});
-			const first = index + 1;
-			const last = Math.min(index + size, items.length);
-			status.textContent =
-				first === last
-					? `Quote ${first} of ${items.length}`
-					: `Quotes ${first}–${last} of ${items.length}`;
-			prev.disabled = index === 0;
-			next.disabled = index >= maxStart;
+		function updateStatus() {
+			status.textContent = `Quote ${index + 1} of ${items.length}`;
 		}
 
-		prev.addEventListener('click', () => {
-			index -= pageSize();
-			if (index < 0) {
-				index = 0;
+		function go(step: number) {
+			const from = items[index];
+			const nextIndex = (index + step + items.length) % items.length;
+			const to = items[nextIndex];
+			if (!from || !to || from === to) {
+				return;
 			}
-			show();
+
+			items.forEach((item) => {
+				item.classList.remove('is-active', 'is-enter-next', 'is-enter-prev', 'is-exit-next', 'is-exit-prev');
+				item.setAttribute('aria-hidden', 'true');
+			});
+			to.removeAttribute('aria-hidden');
+
+			if (motionQuery.matches) {
+				to.classList.add('is-active');
+			} else {
+				from.classList.add(step > 0 ? 'is-exit-next' : 'is-exit-prev');
+				to.classList.add('is-active', step > 0 ? 'is-enter-next' : 'is-enter-prev');
+				from.addEventListener(
+					'animationend',
+					() => {
+						from.classList.remove('is-exit-next', 'is-exit-prev');
+					},
+					{ once: true },
+				);
+			}
+
+			index = nextIndex;
+			updateStatus();
+		}
+
+		prev.addEventListener('click', () => go(-1));
+		next.addEventListener('click', () => go(1));
+		root.addEventListener('keydown', (event) => {
+			if (event.key === 'ArrowLeft') {
+				event.preventDefault();
+				go(-1);
+			}
+			if (event.key === 'ArrowRight') {
+				event.preventDefault();
+				go(1);
+			}
 		});
-		next.addEventListener('click', () => {
-			index += pageSize();
-			show();
+		items.forEach((item, itemIndex) => {
+			if (itemIndex === 0) {
+				item.removeAttribute('aria-hidden');
+			} else {
+				item.setAttribute('aria-hidden', 'true');
+			}
 		});
-		window.addEventListener('resize', show);
-		show();
+		updateStatus();
 	}
 
 	document.querySelectorAll<HTMLElement>('[data-quote-gallery]').forEach(setupGallery);

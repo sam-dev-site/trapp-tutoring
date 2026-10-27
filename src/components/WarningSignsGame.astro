@@ -5,7 +5,10 @@ import '../styles/warning-game.css';
 
 <section class="warning-game" data-warning-game aria-labelledby="warning-game-heading">
 	<h2 id="warning-game-heading">Do I notice this in my student?</h2>
-	<p class="warning-game-note">This is not a diagnosis.</p>
+	<p class="warning-game-note">
+		This is not a diagnosis, just some signs that might point you in the direction of seeking help
+		for dyslexia.
+	</p>
 
 	<div data-game-setup>
 		<fieldset class="warning-game-groups">
@@ -35,26 +38,29 @@ import '../styles/warning-game.css';
 
 	<div data-game-play hidden>
 		<p class="warning-game-progress" data-game-progress></p>
-		<p class="warning-game-encourage" data-game-encourage></p>
 		<div class="warning-game-sign" data-game-sign></div>
 		<div class="warning-game-answers">
 			<button type="button" data-answer="notice">I notice this</button>
-			<button type="button" data-answer="unsure">Not sure</button>
+			<button type="button" data-answer="no">Do not notice</button>
 		</div>
 	</div>
 
 	<div class="warning-game-result" data-game-result hidden>
+		<p class="warning-game-score" data-game-score></p>
 		<p data-game-result-text></p>
+		<ol class="warning-game-review" data-game-review></ol>
 		<p>
-			Next, read the resources below or <a href="#meeting">set up a free meeting</a>.
+			Next, read the <a href="#dyslexia-resources">resources below</a> or
+			<a href="#meeting">set up a free meeting</a>.
 		</p>
+		<div class="warning-game-actions">
+			<button type="button" data-game-restart>Start over</button>
+		</div>
 	</div>
 </section>
 
 <script>
-	import { signsForGroup, type AgeGroup } from '../data/warningSigns';
-
-	const encouragement = ['Thanks.', 'Keep going.', 'Take your time.'];
+	import { signsForGroup, type AgeGroup, type WarningSign } from '../data/warningSigns';
 
 	function setupGame(root: HTMLElement) {
 		const setup = root.querySelector<HTMLElement>('[data-game-setup]');
@@ -63,12 +69,14 @@ import '../styles/warning-game.css';
 		const earlierWrap = root.querySelector<HTMLElement>('[data-earlier-wrap]');
 		const earlier = root.querySelector<HTMLInputElement>('[data-include-earlier]');
 		const start = root.querySelector<HTMLButtonElement>('[data-game-start]');
+		const restart = root.querySelector<HTMLButtonElement>('[data-game-restart]');
 		const progress = root.querySelector<HTMLElement>('[data-game-progress]');
-		const encourage = root.querySelector<HTMLElement>('[data-game-encourage]');
 		const signBox = root.querySelector<HTMLElement>('[data-game-sign]');
+		const score = root.querySelector<HTMLElement>('[data-game-score]');
 		const resultText = root.querySelector<HTMLElement>('[data-game-result-text]');
+		const review = root.querySelector<HTMLElement>('[data-game-review]');
 		const notice = root.querySelector<HTMLButtonElement>('[data-answer="notice"]');
-		const unsure = root.querySelector<HTMLButtonElement>('[data-answer="unsure"]');
+		const noBtn = root.querySelector<HTMLButtonElement>('[data-answer="no"]');
 		if (
 			!setup ||
 			!play ||
@@ -76,12 +84,14 @@ import '../styles/warning-game.css';
 			!earlierWrap ||
 			!earlier ||
 			!start ||
+			!restart ||
 			!progress ||
-			!encourage ||
 			!signBox ||
+			!score ||
 			!resultText ||
+			!review ||
 			!notice ||
-			!unsure
+			!noBtn
 		) {
 			return;
 		}
@@ -92,16 +102,18 @@ import '../styles/warning-game.css';
 		const earlierWrapEl = earlierWrap;
 		const earlierInput = earlier;
 		const startBtn = start;
+		const restartBtn = restart;
 		const progressEl = progress;
-		const encourageEl = encourage;
 		const signBoxEl = signBox;
+		const scoreEl = score;
 		const resultTextEl = resultText;
+		const reviewEl = review;
 		const noticeBtn = notice;
-		const unsureBtn = unsure;
+		const skipBtn = noBtn;
 
-		let signs = signsForGroup('preschool', false);
+		let signs: WarningSign[] = signsForGroup('preschool', false);
 		let index = 0;
-		let noticed = 0;
+		let answers: boolean[] = [];
 
 		function selectedGroup(): AgeGroup {
 			const checked = root.querySelector<HTMLInputElement>('input[name="warning-age"]:checked');
@@ -120,7 +132,6 @@ import '../styles/warning-game.css';
 				return;
 			}
 			progressEl.textContent = `Sign ${index + 1} of ${signs.length}`;
-			encourageEl.textContent = index === 0 ? 'Take your time.' : encouragement[index % encouragement.length];
 			const details = sign.details?.length
 				? `<ul>${sign.details.map((item) => `<li>${item}</li>`).join('')}</ul>`
 				: '';
@@ -128,24 +139,41 @@ import '../styles/warning-game.css';
 		}
 
 		function finish() {
+			const noticed = answers.filter(Boolean).length;
+			const total = signs.length;
 			playEl.hidden = true;
 			resultEl.hidden = false;
+			scoreEl.textContent = `You noticed ${noticed} of ${total} signs.`;
 			resultTextEl.textContent =
 				noticed >= 3
-					? 'Students with three or more of the warning signs are encouraged to learn more about Dyslexia.'
-					: 'You can still learn more about Dyslexia in the resources below, or set up a free meeting.';
+					? 'Three or more is the usual cutoff. That is enough to look into dyslexia more closely — read the resources below, or set up a free meeting.'
+					: 'That is below the usual cutoff of 3. It does not rule anything out. The resources below are still useful if reading or spelling feels harder than it should, and a free meeting is open either way.';
+			reviewEl.innerHTML = signs
+				.map((sign, signIndex) => {
+					const yes = answers[signIndex];
+					const mark = yes ? 'Y' : 'N';
+					const kind = yes ? 'yes' : 'no';
+					const label = yes ? 'Yes' : 'No';
+					return `<li><span class="warning-game-yn warning-game-yn-${kind}" aria-label="${label}">${mark}</span><span>${sign.text}</span></li>`;
+				})
+				.join('');
 		}
 
 		function answer(didNotice: boolean) {
-			if (didNotice) {
-				noticed += 1;
-			}
+			answers.push(didNotice);
 			index += 1;
 			if (index >= signs.length) {
 				finish();
 				return;
 			}
 			renderSign();
+		}
+
+		function showSetup() {
+			setupEl.hidden = false;
+			playEl.hidden = true;
+			resultEl.hidden = true;
+			reviewEl.innerHTML = '';
 		}
 
 		root.querySelectorAll<HTMLInputElement>('input[name="warning-age"]').forEach((input) => {
@@ -157,14 +185,15 @@ import '../styles/warning-game.css';
 				(group === 'high-school' || group === 'adulthood') && earlierInput.checked;
 			signs = signsForGroup(group, includeEarlier);
 			index = 0;
-			noticed = 0;
+			answers = [];
 			setupEl.hidden = true;
 			playEl.hidden = false;
 			resultEl.hidden = true;
 			renderSign();
 		});
+		restartBtn.addEventListener('click', showSetup);
 		noticeBtn.addEventListener('click', () => answer(true));
-		unsureBtn.addEventListener('click', () => answer(false));
+		skipBtn.addEventListener('click', () => answer(false));
 		syncEarlier();
 	}
 

@@ -8,26 +8,32 @@ const resources = [
 	{
 		label: 'Overcoming Dyslexia – by Sally Shaywitz, M.D.',
 		href: 'https://www.amazon.com/dp/B00IIB2N80',
+		blurb: 'The book many families start with: what dyslexia is, and what help actually looks like.',
 	},
 	{
 		label: 'Barton Reading & Spelling System',
 		href: 'https://bartonreading.com/',
+		blurb: 'The official site for the tutoring program Erin uses, including how the ten levels work.',
 	},
 	{
 		label: 'Bright Solutions for Dyslexia',
 		href: 'https://dys-add.com/',
+		blurb: 'Susan Barton’s site — warning signs, videos, and how Barton tutoring is set up.',
 	},
 	{
 		label: 'International Dyslexia Association',
 		href: 'https://dyslexiaida.org/',
+		blurb: 'Clear fact sheets, and a way to find specialists near you.',
 	},
 	{
 		label: 'Learning Ally',
 		href: 'https://learningally.org/',
+		blurb: 'Audiobooks for students who qualify with a reading disability.',
 	},
 	{
 		label: 'The Yale Center for Dyslexia and Creativity',
 		href: 'https://dyslexia.yale.edu/',
+		blurb: 'Plain-language research and articles from the Shaywitz team at Yale.',
 	},
 ] as const;
 ---
@@ -62,6 +68,7 @@ const resources = [
 				resources.map((resource) => (
 					<li>
 						<a href={resource.href}>{resource.label}</a>
+						<p>{resource.blurb}</p>
 					</li>
 				))
 			}

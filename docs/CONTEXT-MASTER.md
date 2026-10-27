@@ -46,7 +46,7 @@ These are accurate current-site claims and should remain on the new site unless 
 | Program | Barton Reading & Spelling System — structured, sequential, Orton-Gillingham based, 10 levels |
 | Duration of program | Most students about **two to three years** to complete all ten levels; the pace depends on the student |
 | Diagnosis | No official dyslexia diagnosis required |
-| Eligibility | At least 5 years old and in kindergarten; speaks and comprehends spoken English; must pass a short screening Erin administers |
+| Eligibility | At least 5 years old or in kindergarten; speaks and comprehends spoken English; must pass a short screening Erin administers |
 | Tech | Reliable internet (at least 30 Mbps down / 5 Mbps up); computer, Chromebook, or iPad (not iPhone); webcam; headset with mic preferred; mouse preferred |
 | Current families | Scheduling and payments through TutorBird at `https://app.tutorbird.com/` |
 
