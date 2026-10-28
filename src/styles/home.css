@@ -9,7 +9,7 @@
   margin: 0 0 1rem;
   padding: 2.75rem 1.25rem 3.25rem;
   overflow: hidden;
-  background: var(--color-mint);
+  background: var(--color-plum);
   border-radius: var(--radius-tile);
 }
 
@@ -193,7 +193,7 @@
   padding: 2rem 1.25rem 3rem;
   margin: 0 0 0.5rem;
   border-radius: var(--radius-tile);
-  background: var(--color-mint);
+  background: var(--color-plum);
 }
 
 .quote-gallery {

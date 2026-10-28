@@ -77,17 +77,23 @@ function isCurrent(route: string) {
 		<main id="main" class={mainClass} tabindex="-1">
 			<slot />
 		</main>
-		{
-			showMeeting && (
-				<section id="meeting" class="meeting-section" aria-labelledby="meeting-heading">
-					<h2 id="meeting-heading">Set up a meeting</h2>
-					<MeetingButtons />
-				</section>
-			)
-		}
-		<footer class="site-footer">
+		<footer class="site-footer" id={showMeeting ? 'meeting' : undefined}>
 			<div class="site-footer-inner">
 				<BrandMark />
+				{
+					showMeeting && (
+						<section class="site-footer-meeting" aria-labelledby="meeting-heading">
+							<div class="site-footer-meeting-copy">
+								<h2 id="meeting-heading">Set up a meeting</h2>
+								<p>
+									Please inquire for a free meeting with me to see if Trapp Tutoring may be a
+									good fit for you!
+								</p>
+							</div>
+							<MeetingButtons lead={false} />
+						</section>
+					)
+				}
 			</div>
 		</footer>
 	</body>

@@ -95,23 +95,6 @@
   color: var(--color-action-fg);
 }
 
-.meeting-section {
-  max-width: none;
-  margin: 0;
-  padding: 2.5rem 1.25rem 3rem;
-  background: var(--color-mint);
-}
-
-.meeting-section h2,
-.meeting-section .meeting-buttons {
-  max-width: var(--measure);
-  margin-inline: auto;
-}
-
-.meeting-section .meeting-buttons {
-  margin-top: 1.25rem;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .nav-links a {
     transition: none;

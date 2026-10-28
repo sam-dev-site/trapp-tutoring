@@ -4,7 +4,7 @@
   margin: 0 0 1.25rem;
   padding: 2rem 1.25rem 2.5rem;
   border-radius: var(--radius-tile);
-  background: var(--color-mint);
+  background: var(--color-plum);
 }
 
 .dyslexia-hero .image-placeholder {
@@ -19,7 +19,7 @@
 }
 
 .dyslexia-resources {
-  background: var(--color-mint);
+  background: var(--color-plum);
 }
 
 .dyslexia-resource-list {
