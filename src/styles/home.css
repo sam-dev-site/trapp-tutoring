@@ -10,7 +10,12 @@
   padding: 2.75rem 1.25rem 3.25rem;
   overflow: hidden;
   background: var(--color-plum);
+  color: var(--color-cream);
   border-radius: var(--radius-tile);
+}
+
+.home-hero :focus-visible {
+  outline-color: var(--color-cream);
 }
 
 .home-hero-copy {
@@ -51,8 +56,15 @@
   font-weight: 700;
 }
 
-.home-hero-meet {
+.home-hero .home-hero-meet {
   margin-left: 0;
+  background-color: var(--color-book);
+  color: var(--color-ink);
+}
+
+.home-hero .home-hero-meet:hover {
+  background-color: var(--color-book-deep);
+  color: var(--color-ink);
 }
 
 .home-hero-art {
@@ -128,65 +140,42 @@
 }
 
 .home-about {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 17.5rem;
   margin: 0;
   padding: 0.85rem 1rem;
+  overflow: hidden;
   background: var(--color-well);
   border-radius: var(--radius-tile);
   box-shadow: inset 0.4rem 0 0 var(--color-coral);
 }
 
-.home-about > summary {
-  list-style: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  min-height: 44px;
-  min-width: 44px;
-  padding: 0.35rem 0;
-}
-
-.home-about > summary::-webkit-details-marker {
-  display: none;
-}
-
-.home-about-mark {
-  flex: 0 0 auto;
-  display: grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 0.45rem;
-  background: var(--color-coral);
-  color: var(--color-cream);
-  font-weight: 700;
-}
-
-.home-about-mark::before {
-  content: "+";
-}
-
-.home-about[open] .home-about-mark::before {
-  content: "−";
-}
-
-.home-about-label {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-}
-
 .home-about-title {
+  margin: 0;
   font-weight: 700;
-}
-
-.home-about-cue {
-  font-weight: 400;
 }
 
 .home-about-body {
-  max-width: var(--measure);
-  padding-top: 1rem;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  padding-top: 0.75rem;
+}
+
+.home-about-body p {
+  margin: 0;
+}
+
+.home-about-more {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: flex-end;
 }
 
 .home-quotes {
@@ -194,6 +183,11 @@
   margin: 0 0 0.5rem;
   border-radius: var(--radius-tile);
   background: var(--color-plum);
+  color: var(--color-cream);
+}
+
+.home-quotes :focus-visible {
+  outline-color: var(--color-cream);
 }
 
 .quote-gallery {
@@ -281,8 +275,13 @@
   margin: 0;
   padding: 1.35rem 1.5rem 1.35rem 1.75rem;
   background: var(--color-well);
+  color: var(--color-ink);
   border-radius: var(--radius-tile);
   box-shadow: inset 0.4rem 0 0 var(--color-coral);
+}
+
+.quote-item :focus-visible {
+  outline-color: var(--color-teal);
 }
 
 .quote-stars {
@@ -316,15 +315,16 @@
   min-width: 3.25rem;
   min-height: 3.25rem;
   padding: 0;
-  color: var(--color-action-fg);
-  background: var(--color-action-bg);
+  color: var(--color-ink);
+  background: var(--color-book);
   border: 0;
   border-radius: 50%;
   cursor: pointer;
 }
 
 .quote-arrow:hover {
-  background: var(--color-teal);
+  color: var(--color-ink);
+  background: var(--color-book-deep);
 }
 
 @media (min-width: 48rem) {

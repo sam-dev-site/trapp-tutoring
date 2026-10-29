@@ -6,6 +6,7 @@ import TestimonialGallery from '../components/TestimonialGallery.astro';
 import '../styles/home.css';
 
 const heroWords = ['Reading', 'and', 'Spelling', 'Intervention'];
+const aboutHref = `${import.meta.env.BASE_URL}tutoring-with-me#about`;
 ---
 
 <BaseLayout mainClass="home-main">
@@ -38,48 +39,17 @@ const heroWords = ['Reading', 'and', 'Spelling', 'Intervention'];
 
 		<div class="home-about-row">
 			<ImagePlaceholder shot="about" />
-			<details class="home-about">
-				<summary>
-					<span class="home-about-mark" aria-hidden="true"></span>
-					<span class="home-about-label">
-						<span class="home-about-title">More about Erin</span>
-						<span class="home-about-cue">Open to read Erin’s story</span>
-					</span>
-				</summary>
+			<div class="home-about">
+				<h3 class="home-about-title">About me</h3>
 				<div class="home-about-body">
 					<p>
 						Hi, I'm Erin Trapp! I am a K-12 teacher, and I completed my BA in Teaching
 						English as a Second Language at Winona State University. My specialties are
-						Dyslexia, Literacy, ESL, Spanish, and Early Childhood Development. I have a
-						wide range of teaching experiences, including 1st grade, 7th grade literacy,
-						high school Spanish and ESL, Pre-K, as well as six years of one-on-one
-						virtual tutoring.
-					</p>
-					<p>
-						During the beginning years of my teaching career, I observed students at
-						various levels struggle with literacy. I was struck by the lack of adequate
-						support for students with Dyslexia in the traditional educational system, and
-						I wanted to become a part of the solution. I dove into studying the
-						challenges that students with Dyslexia face and discovered the importance of
-						learning an Orton-Gillingham based approach. In speaking with a Barton tutor
-						with 15+ years of experience, who later became my mentor, I was inspired by
-						the structure and proven effectiveness of the Barton Reading &amp; Spelling
-						System. Combining my years of experience in one-on-one tutoring and my
-						passion for literacy, I became a Barton-trained, full-time tutor. The ability
-						to read opens up a world of opportunities, and it is such rewarding work to
-						empower students with this skill.
-					</p>
-					<p>
-						Many students who struggle with reading have had very difficult,
-						humiliating, and demoralizing experiences in traditional educational
-						settings. It is no surprise that they would have some hesitation about
-						starting tutoring for reading and spelling! During my online sessions, I
-						strive to make the student feel safe, comfortable, encouraged, and
-						challenged. My passion is empowering students to master skills that they
-						thought were inaccessible to them and have fun while doing it!
+						Dyslexia, Literacy, ESL, Spanish, and Early Childhood Development.
 					</p>
 				</div>
-			</details>
+				<a class="phrase-link home-about-more" href={aboutHref}>Continue reading</a>
+			</div>
 		</div>
 	</section>
 

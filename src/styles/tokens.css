@@ -10,7 +10,16 @@
   Filled actions use the fallback: deep teal (--color-ink) with cream type
   (11.20:1). Do not put small copy on coral.
 
+  Book orange (#D09038) is sampled from the whale illustration's book.
+  Cream on that orange is about 2.3:1, so it is not a text color.
+  Ink on book orange is about 4.9:1, so plum-panel controls can use the
+  orange fill with ink labels and icons.
+
   Ink on white wells: 12.82:1 (AAA).
+
+  Cream (#F4EFE6) on dark plum (#3F2C3C): 11.20:1 (AAA body and headings).
+  Teal on that plum is about 1.6:1, so plum panels use cream type and cream
+  focus rings. Nested white cards keep ink type and teal focus rings.
 */
 
 :root {
@@ -18,7 +27,9 @@
   --color-ink: #123832;
   --color-teal: #165a54;
   --color-coral: #d4684a;
-  --color-plum: #eee4ea;
+  --color-book: #d09038;
+  --color-book-deep: #b17a30;
+  --color-plum: #3f2c3c;
   --color-well: #ffffff;
 
   --color-surface: var(--color-cream);

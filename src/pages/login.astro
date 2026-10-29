@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageTitle from '../components/PageTitle.astro';
 import '../styles/login.css';
 ---
 
-<BaseLayout title="Login — Trapp Tutoring" showMeeting={false}>
+<BaseLayout title="Login — Trapp Tutoring">
 	<section class="login-page">
-		<h1>Login</h1>
+		<PageTitle text="Login" />
 		<p>Students working with me use this button for scheduling and payments.</p>
 		<a
 			class="meeting-button"

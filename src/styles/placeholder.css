@@ -35,3 +35,21 @@
   margin: 0.75rem 0 0;
   max-width: 40ch;
 }
+
+.image-placeholder-photo {
+  width: min(100%, 14rem);
+}
+
+.image-placeholder-photo.is-wide {
+  width: 100%;
+}
+
+.image-placeholder-photo img {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.5rem;
+}

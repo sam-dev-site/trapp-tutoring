@@ -16,6 +16,11 @@ const shots: Record<
 		interimAlt?: string;
 		interimWidth?: number;
 		interimHeight?: number;
+		photoSrc?: string;
+		photoAlt?: string;
+		photoWidth?: number;
+		photoHeight?: number;
+		wide?: boolean;
 	}
 > = {
 	hero: {
@@ -29,6 +34,10 @@ const shots: Record<
 	about: {
 		label: 'Replace with: About headshot of Erin, different from the hero if possible',
 		ratio: '4 / 5',
+		photoSrc: 'images/erin/about-headshot.jpg',
+		photoAlt: 'Erin Trapp smiling outdoors',
+		photoWidth: 886,
+		photoHeight: 1024,
 	},
 	teaching: {
 		label: 'Replace with: Teaching setup — workspace / Koala Go, over-the-shoulder or at the desk',
@@ -40,19 +49,47 @@ const shots: Record<
 	},
 	tiles: {
 		label: 'Replace with: Close-up of letter tiles / games (no third-party logos)',
-		ratio: '1 / 1',
+		ratio: '1024 / 684',
+		photoSrc: 'images/dyslexia/letter-tiles.jpg',
+		photoAlt: 'Letter tiles spelling dyslexia on a paper brain',
+		photoWidth: 1024,
+		photoHeight: 684,
+		wide: true,
 	},
 };
 
 const { shot } = Astro.props;
-const { label, ratio, interimSrc, interimAlt, interimWidth, interimHeight } = shots[shot];
-const src = interimSrc ? `${import.meta.env.BASE_URL}${interimSrc}` : undefined;
+const {
+	label,
+	ratio,
+	interimSrc,
+	interimAlt,
+	interimWidth,
+	interimHeight,
+	photoSrc,
+	photoAlt,
+	photoWidth,
+	photoHeight,
+	wide,
+} = shots[shot];
+const interimUrl = interimSrc ? `${import.meta.env.BASE_URL}${interimSrc}` : undefined;
+const photoUrl = photoSrc ? `${import.meta.env.BASE_URL}${photoSrc}` : undefined;
 ---
 
 {
-	src ? (
+	photoUrl ? (
+		<figure class:list={['image-placeholder', 'image-placeholder-photo', { 'is-wide': wide }]}>
+			<img
+				src={photoUrl}
+				alt={photoAlt}
+				width={photoWidth}
+				height={photoHeight}
+				style={`aspect-ratio: ${ratio};`}
+			/>
+		</figure>
+	) : interimUrl ? (
 		<figure class="image-placeholder image-placeholder-interim">
-			<img src={src} alt={interimAlt} width={interimWidth} height={interimHeight} />
+			<img src={interimUrl} alt={interimAlt} width={interimWidth} height={interimHeight} />
 			<figcaption>{label}</figcaption>
 		</figure>
 	) : (

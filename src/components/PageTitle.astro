@@ -1,0 +1,19 @@
+---
+interface Props {
+	text: string;
+	id?: string;
+}
+
+const { text, id } = Astro.props;
+const words = text.split(/\s+/);
+---
+
+<h1 id={id} class="page-title">
+	{
+		words.map((word, index) => (
+			<span class="page-title-word" style={`--word-i: ${index}`}>
+				{word}
+			</span>
+		))
+	}
+</h1>

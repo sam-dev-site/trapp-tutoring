@@ -1,0 +1,74 @@
+---
+import '../styles/loop-video.css';
+
+interface Props {
+	src: string;
+	objectPosition?: string;
+}
+
+const { src, objectPosition = 'center top' } = Astro.props;
+const url = `${import.meta.env.BASE_URL}${src}`;
+---
+
+<figure class="loop-video">
+	<div class="loop-video-frame" style={`--loop-focus: ${objectPosition};`}>
+		<video src={url} autoplay muted loop playsinline preload="auto"></video>
+		<button type="button" class="loop-video-toggle" aria-label="Pause video">
+			<svg class="loop-video-mark" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+				<g class="loop-video-pause">
+					<rect x="6" y="4" width="3.5" height="16" rx="0.6" fill="currentColor"></rect>
+					<rect x="14.5" y="4" width="3.5" height="16" rx="0.6" fill="currentColor"></rect>
+				</g>
+				<path class="loop-video-play" d="M8 5.2v13.6L18.5 12 8 5.2z" fill="currentColor"></path>
+			</svg>
+		</button>
+	</div>
+</figure>
+
+<script>
+	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+	function sync(video: HTMLVideoElement, button: HTMLButtonElement) {
+		const paused = video.paused;
+		button.classList.toggle('is-paused', paused);
+		button.setAttribute('aria-label', paused ? 'Play video' : 'Pause video');
+		button.setAttribute('aria-pressed', String(!paused));
+	}
+
+	function setup(figure: HTMLElement) {
+		const video = figure.querySelector('video');
+		const button = figure.querySelector('.loop-video-toggle');
+		if (!(video instanceof HTMLVideoElement) || !(button instanceof HTMLButtonElement)) return;
+		if (figure.dataset.loopReady === 'true') return;
+		figure.dataset.loopReady = 'true';
+
+		const applyMotion = () => {
+			if (reduce.matches) {
+				video.pause();
+			} else if (video.dataset.userPaused !== 'true') {
+				video.play().catch(() => {});
+			}
+			sync(video, button);
+		};
+
+		button.addEventListener('click', () => {
+			if (video.paused) {
+				delete video.dataset.userPaused;
+				video.play().catch(() => {});
+			} else {
+				video.dataset.userPaused = 'true';
+				video.pause();
+			}
+			sync(video, button);
+		});
+
+		video.addEventListener('play', () => sync(video, button));
+		video.addEventListener('pause', () => sync(video, button));
+		reduce.addEventListener('change', applyMotion);
+		applyMotion();
+	}
+
+	document.querySelectorAll('.loop-video').forEach((figure) => {
+		if (figure instanceof HTMLElement) setup(figure);
+	});
+</script>

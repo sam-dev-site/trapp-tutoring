@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import PageTitle from '../components/PageTitle.astro';
 import WarningSignsGame from '../components/WarningSignsGame.astro';
 import '../styles/dyslexia.css';
 
@@ -41,7 +42,7 @@ const resources = [
 <BaseLayout title="Dyslexia — Trapp Tutoring">
 	<section class="dyslexia-hero">
 		<div>
-			<h1>Dyslexia</h1>
+			<PageTitle text="Dyslexia" />
 			<p>
 				Dyslexia researchers believe that Dyslexia affects 20% of people, and many struggling
 				readers are undiagnosed.

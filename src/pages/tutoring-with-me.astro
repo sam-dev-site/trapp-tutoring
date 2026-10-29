@@ -1,18 +1,51 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ImagePlaceholder from '../components/ImagePlaceholder.astro';
-import MeetingButtons from '../components/MeetingButtons.astro';
+import LoopVideo from '../components/LoopVideo.astro';
 import OfferIcon from '../components/OfferIcon.astro';
+import PageTitle from '../components/PageTitle.astro';
 import '../styles/tutoring.css';
 ---
 
 <BaseLayout title="Tutoring With Me — Trapp Tutoring">
 	<section class="tutoring-hero">
-		<div>
-			<h1>Tutoring With Me</h1>
-			<MeetingButtons />
+		<div class="tutoring-hero-media">
+			<LoopVideo src="videos/erin-teaching-30s.mp4" objectPosition="center bottom" />
 		</div>
-		<ImagePlaceholder shot="teaching" />
+		<PageTitle id="about" text="About me" />
+		<div class="tutoring-hero-copy">
+			<p>
+				Hi, I'm Erin Trapp! I am a K-12 teacher, and I completed my BA in Teaching English as a
+				Second Language at Winona State University. My specialties are Dyslexia, Literacy, ESL,
+				Spanish, and Early Childhood Development. I have a wide range of teaching experiences,
+				including 1st grade, 7th grade literacy, high school Spanish and ESL, Pre-K, as well as
+				six years of one-on-one virtual tutoring.
+			</p>
+			<p>
+				During the beginning years of my teaching career, I observed students at various levels
+				struggle with literacy. I was struck by the lack of adequate support for students with
+				Dyslexia in the traditional educational system, and I wanted to become a part of the
+				solution. I dove into studying the challenges that students with Dyslexia face and
+				discovered the importance of learning an Orton-Gillingham based approach. In speaking
+				with a Barton tutor with 15+ years of experience, who later became my mentor, I was
+				inspired by the structure and proven effectiveness of the Barton Reading &amp; Spelling
+				System. Combining my years of experience in one-on-one tutoring and my passion for
+				literacy, I became a Barton-trained, full-time tutor. The ability to read opens up a
+				world of opportunities, and it is such rewarding work to empower students with this
+				skill.
+			</p>
+			<p>
+				Many students who struggle with reading have had very difficult, humiliating, and
+				demoralizing experiences in traditional educational settings. It is no surprise that
+				they would have some hesitation about starting tutoring for reading and spelling!
+				During my online sessions, I strive to make the student feel safe, comfortable,
+				encouraged, and challenged. My passion is empowering students to master skills that
+				they thought were inaccessible to them and have fun while doing it!
+			</p>
+		</div>
+	</section>
+
+	<section class="tutoring-clip">
+		<LoopVideo src="videos/student-gameplay-from-1m28.mp4" />
 	</section>
 
 	<section class="tutoring-facts" aria-labelledby="tutoring-facts-heading">
@@ -97,6 +130,24 @@ import '../styles/tutoring.css';
 							that the learned skills are not forgotten, but rather can be built upon to see
 							impressive improvement. Classes are typically 50 minutes, but modifications can be
 							made based on the needs of the student.
+						</p>
+					</div>
+				</details>
+			</li>
+			<li class="tutoring-fact">
+				<details>
+					<summary>
+						<OfferIcon name="fun" />
+						<h3>Fun</h3>
+						<span class="tutoring-fact-mark" aria-hidden="true"></span>
+					</summary>
+					<div class="tutoring-fact-body">
+						<p>
+							Many of my students start class thinking reading is too challenging for them,
+							feeling defeated before the first day. I flip the script and make sure every
+							class is accessible, enjoyable, and personalized with tailored games and content
+							to the students' interests. I love seeing my students go from discouraged to
+							delighted in just 50 minutes!
 						</p>
 					</div>
 				</details>

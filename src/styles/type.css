@@ -46,6 +46,51 @@ h1 {
   font-size: 2.25rem;
 }
 
+.page-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2em 0.45em;
+}
+
+.page-title-word {
+  display: inline-block;
+  animation: home-word-up 0.7s ease both;
+  animation-delay: calc(var(--word-i) * 90ms);
+}
+
+.page-title::after {
+  content: "";
+  width: 4.5rem;
+  height: 0.45rem;
+  background: var(--color-coral);
+  border-radius: 999px;
+  transform-origin: left center;
+  animation: home-flourish 0.8s ease 0.35s both;
+}
+
+@keyframes home-word-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.55rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes home-flourish {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
 h2 {
   font-size: 1.75rem;
 }
@@ -69,6 +114,13 @@ p {
 .phrase-link {
   padding-inline: 0.15em;
   text-underline-offset: 0.2em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-title-word,
+  .page-title::after {
+    animation: none;
+  }
 }
 
 main {

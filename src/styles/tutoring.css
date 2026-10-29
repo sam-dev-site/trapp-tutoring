@@ -1,18 +1,41 @@
 .tutoring-hero {
-  display: grid;
-  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
   margin: 0 0 1.5rem;
   padding: 2rem 1.25rem 2.5rem;
   border-radius: var(--radius-tile);
   background: var(--color-plum);
+  color: var(--color-cream);
 }
 
-.tutoring-hero .meeting-buttons {
-  margin-top: 1rem;
-}
-
-.tutoring-hero .image-placeholder {
+.tutoring-hero h1 {
+  order: 1;
   margin: 0;
+}
+
+.tutoring-hero-media {
+  order: 2;
+}
+
+.tutoring-hero-copy {
+  order: 3;
+}
+
+.tutoring-hero-copy p {
+  margin: 0 0 1rem;
+}
+
+.tutoring-hero-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.tutoring-hero :focus-visible {
+  outline-color: var(--color-cream);
+}
+
+.tutoring-hero p {
+  max-width: none;
 }
 
 .tutoring-facts,
@@ -29,6 +52,10 @@
   padding: 0;
   display: grid;
   gap: 1.25rem;
+}
+
+.tutoring-fact-list {
+  align-items: start;
 }
 
 .tutoring-fact {
@@ -103,10 +130,14 @@
 
 @media (min-width: 48rem) {
   .tutoring-hero {
-    grid-template-columns: minmax(16rem, 1fr) minmax(16rem, 1fr);
-    align-items: center;
-    gap: 2.5rem;
+    display: flow-root;
     padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .tutoring-hero-media {
+    float: right;
+    width: min(42%, 22rem);
+    margin: 0 0 0.75rem 1.75rem;
   }
 
   .tutoring-fact-list {
