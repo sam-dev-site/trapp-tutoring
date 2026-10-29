@@ -5,6 +5,7 @@ export type PhotoShot = 'hero' | 'about' | 'teaching' | 'session' | 'tiles';
 
 interface Props {
 	shot: PhotoShot;
+	showLabel?: boolean;
 }
 
 const shots: Record<
@@ -58,7 +59,7 @@ const shots: Record<
 	},
 };
 
-const { shot } = Astro.props;
+const { shot, showLabel = true } = Astro.props;
 const {
 	label,
 	ratio,
@@ -90,7 +91,7 @@ const photoUrl = photoSrc ? `${import.meta.env.BASE_URL}${photoSrc}` : undefined
 	) : interimUrl ? (
 		<figure class="image-placeholder image-placeholder-interim">
 			<img src={interimUrl} alt={interimAlt} width={interimWidth} height={interimHeight} />
-			<figcaption>{label}</figcaption>
+			{showLabel && <figcaption>{label}</figcaption>}
 		</figure>
 	) : (
 		<figure class="image-placeholder">
