@@ -44,12 +44,12 @@ const resources = [
 		<div>
 			<PageTitle text="Dyslexia" />
 			<p>
-				Dyslexia researchers believe that Dyslexia affects 20% of people, and many struggling
+				Researchers believe that dyslexia affects 20% of people, and many struggling
 				readers are undiagnosed.
 			</p>
 			<p>
 				Students with three or more of the warning signs are encouraged to learn more about
-				Dyslexia.
+				dyslexia.
 			</p>
 		</div>
 		<ImagePlaceholder shot="tiles" />
@@ -68,7 +68,7 @@ const resources = [
 			{
 				resources.map((resource) => (
 					<li>
-						<a href={resource.href}>{resource.label}</a>
+						<a href={resource.href} target="_blank" rel="noopener noreferrer">{resource.label}</a>
 						<p>{resource.blurb}</p>
 					</li>
 				))

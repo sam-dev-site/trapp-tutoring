@@ -96,5 +96,33 @@ function isCurrent(route: string) {
 				}
 			</div>
 		</footer>
+		<script>
+			function markOffsiteLinks(root: ParentNode = document) {
+				root.querySelectorAll('a[href]').forEach((link) => {
+					if (!(link instanceof HTMLAnchorElement)) {
+						return;
+					}
+					const href = link.getAttribute('href') ?? '';
+					if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('sms:')) {
+						return;
+					}
+					let url: URL;
+					try {
+						url = new URL(href, window.location.href);
+					} catch {
+						return;
+					}
+					const isPdf = url.pathname.toLowerCase().endsWith('.pdf');
+					const isOffsite = url.origin !== window.location.origin;
+					if (!isPdf && !isOffsite) {
+						return;
+					}
+					link.target = '_blank';
+					link.rel = 'noopener noreferrer';
+				});
+			}
+
+			markOffsiteLinks();
+		</script>
 	</body>
 </html>
