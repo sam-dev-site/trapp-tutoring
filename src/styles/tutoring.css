@@ -49,6 +49,24 @@
   scroll-margin-top: 6rem;
 }
 
+.tutoring-more-body::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.tutoring-more-photo {
+  display: block;
+  box-sizing: border-box;
+  width: min(11rem, 58%);
+  height: auto;
+  aspect-ratio: 1;
+  margin: 0 auto 1.15rem;
+  object-fit: cover;
+  object-position: 50% 18%;
+  border-radius: 50%;
+}
+
 .tutoring-more p {
   margin: 0 0 1rem;
 }
@@ -174,6 +192,15 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .tutoring-more-photo {
+    float: left;
+    width: 11rem;
+    height: 11rem;
+    margin: 0.15rem 1.35rem 0.75rem 0;
+  }
 }
 
 @media (min-width: 48rem) {

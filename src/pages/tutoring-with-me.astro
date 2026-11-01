@@ -5,6 +5,8 @@ import LoopVideo from '../components/LoopVideo.astro';
 import OfferIcon from '../components/OfferIcon.astro';
 import PageTitle from '../components/PageTitle.astro';
 import '../styles/tutoring.css';
+
+const moreAboutSrc = `${import.meta.env.BASE_URL}images/erin/more-about.jpg`;
 ---
 
 <BaseLayout title="Tutoring With Me — Trapp Tutoring">
@@ -31,26 +33,35 @@ import '../styles/tutoring.css';
 
 	<section class="tutoring-more" id="more-about" aria-labelledby="more-about-heading">
 		<h2 id="more-about-heading">More about me</h2>
-		<p>
-			Hi, I'm Erin Trapp! I am a K-12 teacher, and I completed my BA in Teaching English as a
-			Second Language at Winona State University. My specialties are dyslexia, Literacy, ESL,
-			Spanish, and Early Childhood Development. I have a wide range of teaching experiences,
-			including 1st grade, 7th grade literacy, high school Spanish and ESL, Pre-K, as well as
-			six years of one-on-one virtual tutoring.
-		</p>
-		<p>
-			During the beginning years of my teaching career, I observed students at various levels
-			struggle with literacy. I was struck by the lack of adequate support for students with
-			dyslexia in the traditional educational system, and I wanted to become a part of the
-			solution. I dove into studying the challenges that students with dyslexia face and
-			discovered the importance of learning an Orton-Gillingham based approach. In speaking
-			with a Barton tutor with 15+ years of experience, who later became my mentor, I was
-			inspired by the structure and proven effectiveness of the Barton Reading &amp; Spelling
-			System. Combining my years of experience in one-on-one tutoring and my passion for
-			literacy, I became a Barton-trained, full-time tutor. The ability to read opens up a
-			world of opportunities, and it is such rewarding work to empower students with this
-			skill.
-		</p>
+		<div class="tutoring-more-body">
+			<img
+				class="tutoring-more-photo"
+				src={moreAboutSrc}
+				alt="Erin Trapp smiling outdoors"
+				width="768"
+				height="1024"
+			/>
+			<p>
+				Hi, I'm Erin Trapp! I am a K-12 teacher, and I completed my BA in Teaching English as a
+				Second Language at Winona State University. My specialties are dyslexia, Literacy, ESL,
+				Spanish, and Early Childhood Development. I have a wide range of teaching experiences,
+				including 1st grade, 7th grade literacy, high school Spanish and ESL, Pre-K, as well as
+				six years of one-on-one virtual tutoring.
+			</p>
+			<p>
+				During the beginning years of my teaching career, I observed students at various levels
+				struggle with literacy. I was struck by the lack of adequate support for students with
+				dyslexia in the traditional educational system, and I wanted to become a part of the
+				solution. I dove into studying the challenges that students with dyslexia face and
+				discovered the importance of learning an Orton-Gillingham based approach. In speaking
+				with a Barton tutor with 15+ years of experience, who later became my mentor, I was
+				inspired by the structure and proven effectiveness of the Barton Reading &amp; Spelling
+				System. Combining my years of experience in one-on-one tutoring and my passion for
+				literacy, I became a Barton-trained, full-time tutor. The ability to read opens up a
+				world of opportunities, and it is such rewarding work to empower students with this
+				skill.
+			</p>
+		</div>
 	</section>
 
 	<section class="tutoring-facts" aria-labelledby="tutoring-facts-heading">

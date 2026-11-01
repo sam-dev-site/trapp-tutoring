@@ -3,6 +3,28 @@
   padding-bottom: 2.5rem;
 }
 
+.barton-intro::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.barton-lightbulb {
+  display: block;
+  box-sizing: border-box;
+  width: min(13rem, 60%);
+  height: auto;
+  margin: 0 auto 1rem;
+}
+
+@media (min-width: 40rem) {
+  .barton-lightbulb {
+    float: right;
+    width: 13rem;
+    margin: 0.1rem 0 0.75rem 1.25rem;
+  }
+}
+
 .barton-levels ol {
   margin: 1.25rem 0;
   padding-left: 1.5rem;
