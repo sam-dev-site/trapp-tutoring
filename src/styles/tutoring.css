@@ -38,10 +38,27 @@
   max-width: none;
 }
 
+.tutoring-more,
 .tutoring-facts,
 .tutoring-tech,
 .tutoring-who {
   padding-bottom: 2.5rem;
+}
+
+.tutoring-more {
+  scroll-margin-top: 6rem;
+}
+
+.tutoring-more p {
+  margin: 0 0 1rem;
+}
+
+.tutoring-more p:last-child {
+  margin-bottom: 0;
+}
+
+.tutoring-facts .image-placeholder {
+  margin: 1.5rem 0 0;
 }
 
 .tutoring-fact-list,
@@ -121,11 +138,42 @@
   margin: 0;
 }
 
-.tutoring-tech-list li,
-.tutoring-who-list li {
+.tutoring-tech-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem 1.15rem;
   padding: 1.25rem 1.5rem;
   background: var(--color-well);
   border-radius: 0.5rem;
+}
+
+.tutoring-tech-list h3 {
+  margin: 0 0 0.45rem;
+}
+
+.tutoring-who-list {
+  gap: 0.85rem;
+}
+
+.tutoring-who-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 0.75rem;
+}
+
+.tutoring-who-check {
+  box-sizing: border-box;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.2rem;
+  border-radius: 0.3rem;
+  background: var(--color-teal);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23f4efe6' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' d='M3.4 8.2 6.5 11.2 12.6 4.8'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1rem;
 }
 
 @media (min-width: 48rem) {

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 import LoopVideo from '../components/LoopVideo.astro';
 import OfferIcon from '../components/OfferIcon.astro';
 import PageTitle from '../components/PageTitle.astro';
@@ -11,28 +12,8 @@ import '../styles/tutoring.css';
 		<div class="tutoring-hero-media">
 			<LoopVideo src="videos/erin-teaching-30s.mp4" objectPosition="center bottom" />
 		</div>
-		<PageTitle id="about" text="About me" />
+		<PageTitle id="about" text="My approach" />
 		<div class="tutoring-hero-copy">
-			<p>
-				Hi, I'm Erin Trapp! I am a K-12 teacher, and I completed my BA in Teaching English as a
-				Second Language at Winona State University. My specialties are Dyslexia, Literacy, ESL,
-				Spanish, and Early Childhood Development. I have a wide range of teaching experiences,
-				including 1st grade, 7th grade literacy, high school Spanish and ESL, Pre-K, as well as
-				six years of one-on-one virtual tutoring.
-			</p>
-			<p>
-				During the beginning years of my teaching career, I observed students at various levels
-				struggle with literacy. I was struck by the lack of adequate support for students with
-				Dyslexia in the traditional educational system, and I wanted to become a part of the
-				solution. I dove into studying the challenges that students with Dyslexia face and
-				discovered the importance of learning an Orton-Gillingham based approach. In speaking
-				with a Barton tutor with 15+ years of experience, who later became my mentor, I was
-				inspired by the structure and proven effectiveness of the Barton Reading &amp; Spelling
-				System. Combining my years of experience in one-on-one tutoring and my passion for
-				literacy, I became a Barton-trained, full-time tutor. The ability to read opens up a
-				world of opportunities, and it is such rewarding work to empower students with this
-				skill.
-			</p>
 			<p>
 				Many students who struggle with reading have had very difficult, humiliating, and
 				demoralizing experiences in traditional educational settings. It is no surprise that
@@ -46,6 +27,30 @@ import '../styles/tutoring.css';
 
 	<section class="tutoring-clip">
 		<LoopVideo src="videos/student-gameplay-from-1m28.mp4" />
+	</section>
+
+	<section class="tutoring-more" id="more-about" aria-labelledby="more-about-heading">
+		<h2 id="more-about-heading">More about me</h2>
+		<p>
+			Hi, I'm Erin Trapp! I am a K-12 teacher, and I completed my BA in Teaching English as a
+			Second Language at Winona State University. My specialties are Dyslexia, Literacy, ESL,
+			Spanish, and Early Childhood Development. I have a wide range of teaching experiences,
+			including 1st grade, 7th grade literacy, high school Spanish and ESL, Pre-K, as well as
+			six years of one-on-one virtual tutoring.
+		</p>
+		<p>
+			During the beginning years of my teaching career, I observed students at various levels
+			struggle with literacy. I was struck by the lack of adequate support for students with
+			Dyslexia in the traditional educational system, and I wanted to become a part of the
+			solution. I dove into studying the challenges that students with Dyslexia face and
+			discovered the importance of learning an Orton-Gillingham based approach. In speaking
+			with a Barton tutor with 15+ years of experience, who later became my mentor, I was
+			inspired by the structure and proven effectiveness of the Barton Reading &amp; Spelling
+			System. Combining my years of experience in one-on-one tutoring and my passion for
+			literacy, I became a Barton-trained, full-time tutor. The ability to read opens up a
+			world of opportunities, and it is such rewarding work to empower students with this
+			skill.
+		</p>
 	</section>
 
 	<section class="tutoring-facts" aria-labelledby="tutoring-facts-heading">
@@ -153,44 +158,60 @@ import '../styles/tutoring.css';
 				</details>
 			</li>
 		</ul>
+		<ImagePlaceholder shot="session" showLabel={false} />
 	</section>
 
 	<section class="tutoring-tech" aria-labelledby="tutoring-tech-heading">
 		<h2 id="tutoring-tech-heading">What do you need to start tutoring?</h2>
 		<ul class="tutoring-tech-list">
 			<li>
-				<h3>Reliable Internet</h3>
-				<p>
-					For Koala Go to be supported, you need a download and upload speed of at least 30
-					Mbps download / 5 Mbps upload.
-					<a class="phrase-link" href="https://www.speedtest.net/">Check your speed on Speedtest</a>.
-				</p>
+				<OfferIcon name="internet" />
+				<div>
+					<h3>Reliable Internet</h3>
+					<p>
+						For Koala Go to be supported, you need a download and upload speed of at least 30
+						Mbps download / 5 Mbps upload.
+						<a class="phrase-link" href="https://www.speedtest.net/">Check your speed on Speedtest</a>.
+					</p>
+				</div>
 			</li>
 			<li>
-				<h3>Computer, Chromebook, or iPad</h3>
-				<p>
-					Koala Go is compatible with all computers, Chromebooks, and iPads. At this time,
-					tutoring is not possible via iPhone.
-				</p>
+				<OfferIcon name="device" />
+				<div>
+					<h3>Computer, Chromebook, or iPad</h3>
+					<p>
+						Koala Go is compatible with all computers, Chromebooks, and iPads. At this time,
+						tutoring is not possible via iPhone.
+					</p>
+				</div>
 			</li>
 			<li>
-				<h3>Webcam</h3>
-				<p>If your computer has a built-in webcam, that will work just fine!</p>
+				<OfferIcon name="webcam" />
+				<div>
+					<h3>Webcam</h3>
+					<p>If your computer has a built-in webcam, that will work just fine!</p>
+				</div>
 			</li>
 			<li>
-				<h3>Headset with mouthpiece (preferred)</h3>
-				<p>
-					Both the student and I will be working with important sound distinctions, so a headset
-					helps to ensure that everyone is understood clearly and the sounds are learned
-					correctly.
-				</p>
+				<OfferIcon name="headset" />
+				<div>
+					<h3>Headset with mouthpiece</h3>
+					<p>
+						Both the student and I will be working with important sound distinctions, so a headset
+						helps to ensure that everyone is understood clearly and the sounds are learned
+						correctly.
+					</p>
+				</div>
 			</li>
 			<li>
-				<h3>Computer mouse (preferred)</h3>
-				<p>
-					Because my tutoring style is highly interactive, students will be manipulating objects
-					on the screen a lot. A mouse may facilitate manipulation, especially for younger kids.
-				</p>
+				<OfferIcon name="mouse" />
+				<div>
+					<h3>Computer mouse</h3>
+					<p>
+						Because my tutoring style is highly interactive, students will be manipulating objects
+						on the screen a lot. A mouse may facilitate manipulation, especially for younger kids.
+					</p>
+				</div>
 			</li>
 		</ul>
 	</section>
@@ -203,9 +224,18 @@ import '../styles/tutoring.css';
 			the student must:
 		</p>
 		<ul class="tutoring-who-list">
-			<li>be at least 5 years old or in kindergarten.</li>
-			<li>speak and comprehend spoken English.</li>
-			<li>pass a short student screening that I will administer before we begin tutoring.</li>
+			<li>
+				<span class="tutoring-who-check" aria-hidden="true"></span>
+				<span>be at least 5 years old or in kindergarten.</span>
+			</li>
+			<li>
+				<span class="tutoring-who-check" aria-hidden="true"></span>
+				<span>speak and comprehend spoken English.</span>
+			</li>
+			<li>
+				<span class="tutoring-who-check" aria-hidden="true"></span>
+				<span>pass a short student screening that I will administer before we begin tutoring.</span>
+			</li>
 		</ul>
 	</section>
 </BaseLayout>
