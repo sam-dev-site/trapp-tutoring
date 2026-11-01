@@ -45,7 +45,7 @@
   background: var(--color-well);
   color: var(--color-ink);
   border-radius: var(--radius-tile);
-  box-shadow: inset 0.35rem 0 0 var(--color-teal);
+  box-shadow: inset 0.35rem 0 0 var(--color-sage);
 }
 
 .dyslexia-resource-list :focus-visible {

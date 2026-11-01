@@ -1,14 +1,17 @@
-@import "@fontsource/atkinson-hyperlegible/400.css";
-@import "@fontsource/atkinson-hyperlegible/700.css";
+@import "@fontsource/dm-sans/400.css";
+@import "@fontsource/dm-sans/700.css";
+@import "@fontsource/fraunces/600.css";
+@import "@fontsource/fraunces/700.css";
 
 /*
-  Dyslexia-first type: Atkinson Hyperlegible, 20px body, 1.7 line-height,
-  measure capped at 65ch, left-aligned. No justified text, no long italics,
-  no all-caps paragraphs.
+  Brand type: Fraunces headings, DM Sans body.
+  Keep 20px body, 1.7 line-height, measure capped at 65ch, left-aligned.
+  No justified text, no long italics, no all-caps paragraphs.
 */
 
 :root {
-  --font-sans: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --font-sans: "DM Sans", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-size-body: 1.25rem;
   --line-height-body: 1.7;
   --measure: 65ch;
@@ -33,13 +36,24 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  font-family: var(--font-sans);
+h6,
+.wordmark,
+.quote-status,
+.quote-item cite,
+.warning-game-score {
+  font-family: var(--font-display);
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   line-height: 1.25;
   text-align: left;
   text-transform: none;
+}
+
+h1,
+h2,
+.wordmark {
+  font-weight: 700;
 }
 
 h1 {
@@ -62,8 +76,8 @@ h1 {
 .page-title::after {
   content: "";
   width: 4.5rem;
-  height: 0.45rem;
-  background: var(--color-coral);
+  height: 0.38rem;
+  background: var(--color-terracotta);
   border-radius: 999px;
   transform-origin: left center;
   animation: home-flourish 0.8s ease 0.35s both;

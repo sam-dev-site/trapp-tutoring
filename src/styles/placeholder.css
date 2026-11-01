@@ -11,8 +11,8 @@
   width: 100%;
   padding: 1rem;
   background-color: var(--color-well);
-  border: 2px dashed var(--color-teal);
-  border-radius: 0.5rem;
+  border: 2px dashed var(--color-sage);
+  border-radius: 1rem;
 }
 
 .image-placeholder-frame p {
@@ -28,7 +28,7 @@
   width: 100%;
   max-width: 100%;
   height: auto;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
 }
 
 .image-placeholder-interim figcaption {
@@ -51,5 +51,5 @@
   height: auto;
   object-fit: cover;
   object-position: center;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
 }

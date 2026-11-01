@@ -1,6 +1,12 @@
-.barton-intro,
-.barton-levels {
+.barton-intro {
   padding-bottom: 2.5rem;
+}
+
+.barton-levels {
+  padding: 1.75rem 1.25rem 2.5rem;
+  margin-inline: -1.25rem;
+  border-radius: var(--radius-tile);
+  background: rgb(169 185 159 / 0.28);
 }
 
 .barton-intro::after {

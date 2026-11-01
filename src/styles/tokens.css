@@ -1,51 +1,59 @@
 /*
-  Trapp Tutoring color tokens — teal / coral / cream.
+  Trapp Tutoring color tokens — bookstore / boutique palette.
 
-  Contrast on cream (#F4EFE6), WCAG 2.2:
-  - Ink #123832: 11.20:1 (AAA body and headings)
-  - Mid teal #165A54: 6.99:1 (AA links; ~7:1 aim)
-  - Coral #D4684A: 3.12:1 (fails small text; OK as a large decorative accent at 3:1)
+  Contrast on warm ivory (#F7F1E8), WCAG 2.2:
+  - Deep plum #54465A: ~7.8:1 (AAA body and headings)
+  - Deep sage #3E5340: ~7.4:1 (AAA links and focus)
+  - Terracotta #D77950: ~2.8:1 (fails small text; decorative only)
+  - Terracotta deep #B85E38 with ivory type: ~4.0:1 (OK for large/bold actions)
 
-  Coral is not used for small body text.
-  Filled actions use the fallback: deep teal (--color-ink) with cream type
-  (11.20:1). Do not put small copy on coral.
-
-  Book orange (#D09038) is sampled from the whale illustration's book.
-  Cream on that orange is about 2.3:1, so it is not a text color.
-  Ink on book orange is about 4.9:1, so plum-panel controls can use the
-  orange fill with ink labels and icons.
-
-  Ink on white wells: 12.82:1 (AAA).
-
-  Cream (#F4EFE6) on dark plum (#3F2C3C): 11.20:1 (AAA body and headings).
-  Teal on that plum is about 1.6:1, so plum panels use cream type and cream
-  focus rings. Nested white cards keep ink type and teal focus rings.
+  Terracotta is not used for small body text.
+  Filled actions use terracotta deep with ivory type.
+  Plum panels use ivory type and ivory focus rings.
 */
 
 :root {
-  --color-cream: #f4efe6;
-  --color-ink: #123832;
-  --color-teal: #165a54;
-  --color-coral: #d4684a;
-  --color-book: #d09038;
-  --color-book-deep: #b17a30;
-  --color-plum: #3f2c3c;
-  --color-well: #ffffff;
+  --color-terracotta: #d77950;
+  --color-terracotta-deep: #b85e38;
+  --color-ivory: #f7f1e8;
+  --color-sage: #a9b99f;
+  --color-sage-deep: #3e5340;
+  --color-blue: #a5b5c5;
+  --color-marigold: #d9b96f;
+  --color-marigold-deep: #c4a45a;
+  --color-plum: #54465a;
+  --color-paper: #fff9f2;
 
-  --color-surface: var(--color-cream);
-  --color-text: var(--color-ink);
-  --color-heading: var(--color-ink);
-  --color-link: var(--color-teal);
-  --color-accent: var(--color-coral);
-  --color-action-bg: var(--color-ink);
-  --color-action-fg: var(--color-cream);
-  --color-feedback: var(--color-teal);
-  --radius-tile: 0.85rem;
+  --color-cream: var(--color-ivory);
+  --color-ink: var(--color-plum);
+  --color-teal: var(--color-sage-deep);
+  --color-coral: var(--color-terracotta);
+  --color-book: var(--color-marigold);
+  --color-book-deep: var(--color-marigold-deep);
+  --color-well: var(--color-paper);
+
+  --color-surface: var(--color-ivory);
+  --color-text: var(--color-plum);
+  --color-heading: var(--color-plum);
+  --color-link: var(--color-sage-deep);
+  --color-accent: var(--color-terracotta);
+  --color-action-bg: var(--color-terracotta-deep);
+  --color-action-fg: var(--color-ivory);
+  --color-feedback: var(--color-sage-deep);
+  --radius-tile: 1.25rem;
 }
 
 html {
   background-color: var(--color-surface);
   color: var(--color-text);
+}
+
+body {
+  background-color: var(--color-ivory);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 0% 0%, rgb(169 185 159 / 0.22), transparent 52%),
+    radial-gradient(ellipse 60% 40% at 100% 8%, rgb(165 181 197 / 0.18), transparent 48%),
+    radial-gradient(ellipse 50% 30% at 80% 100%, rgb(217 185 111 / 0.12), transparent 50%);
 }
 
 a {
