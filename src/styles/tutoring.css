@@ -58,7 +58,7 @@
 .tutoring-more-photo {
   display: block;
   box-sizing: border-box;
-  width: min(11rem, 58%);
+  width: min(13rem, 58%);
   height: auto;
   aspect-ratio: 1;
   margin: 0 auto 1.15rem;
@@ -197,8 +197,8 @@
 @media (min-width: 40rem) {
   .tutoring-more-photo {
     float: left;
-    width: 11rem;
-    height: 11rem;
+    width: 13rem;
+    height: 13rem;
     margin: 0.15rem 1.35rem 0.75rem 0;
   }
 }
