@@ -17,7 +17,7 @@ interface Props {
 
 const { title = 'Trapp Tutoring', mainClass, showMeeting = true } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
-const faviconSrc = `${baseUrl}images/logo/whale-icon.jpg`;
+const faviconSrc = `${baseUrl}images/logo/whale-clean.jpg`;
 const basePrefix = baseUrl.replace(/\/$/, '');
 const rawPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const path =
