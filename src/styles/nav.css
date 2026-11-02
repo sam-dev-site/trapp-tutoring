@@ -78,11 +78,14 @@
   min-height: 44px;
   padding: 0.5rem 1rem;
   margin-left: auto;
+  border: 0;
   background-color: var(--color-action-bg);
   color: var(--color-action-fg);
+  font: inherit;
   font-weight: 700;
   text-decoration: none;
   border-radius: 999px;
+  cursor: pointer;
 }
 
 .site-header .meeting-nav {

@@ -1,0 +1,75 @@
+---
+import MeetingButtons from './MeetingButtons.astro';
+---
+
+<dialog class="meeting-dialog" id="meeting-dialog" aria-labelledby="meeting-dialog-heading">
+	<div class="meeting-dialog-panel">
+		<div class="meeting-dialog-top">
+			<h2 id="meeting-dialog-heading">Set up a meeting</h2>
+			<button type="button" class="meeting-dialog-close" data-meeting-close aria-label="Close">
+				<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+					<path
+						d="M5 5l10 10M15 5 5 15"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2.2"
+						stroke-linecap="round"></path>
+				</svg>
+			</button>
+		</div>
+		<p>
+			Please inquire for a free meeting with me to see if Trapp Tutoring may be a
+			good fit for you!
+		</p>
+		<MeetingButtons lead={false} showCall={false} />
+	</div>
+</dialog>
+
+<script>
+	import { contactPhone, textBody } from '../data/contact';
+
+	function isApplePhone() {
+		return (
+			/iPad|iPhone|iPod/.test(navigator.userAgent) ||
+			(/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1)
+		);
+	}
+
+	function applyTextHrefs() {
+		const encoded = encodeURIComponent(textBody);
+		const href = isApplePhone()
+			? `sms:${contactPhone}&body=${encoded}`
+			: `sms:${contactPhone}?body=${encoded}`;
+
+		document.querySelectorAll<HTMLAnchorElement>('a[data-sms-body]').forEach((link) => {
+			link.href = href;
+		});
+	}
+
+	function setupMeetingDialog() {
+		const dialog = document.querySelector<HTMLDialogElement>('#meeting-dialog');
+		if (!dialog) {
+			return;
+		}
+
+		document.querySelectorAll('[data-meeting-open]').forEach((opener) => {
+			opener.addEventListener('click', (event) => {
+				event.preventDefault();
+				dialog.showModal();
+			});
+		});
+
+		dialog.querySelectorAll('[data-meeting-close]').forEach((closer) => {
+			closer.addEventListener('click', () => dialog.close());
+		});
+
+		dialog.addEventListener('click', (event) => {
+			if (event.target === dialog) {
+				dialog.close();
+			}
+		});
+	}
+
+	applyTextHrefs();
+	setupMeetingDialog();
+</script>

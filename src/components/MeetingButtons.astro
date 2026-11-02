@@ -1,15 +1,21 @@
 ---
+import { contactPhone, mailtoHref, smsHref, textBody } from '../data/contact';
+
 interface Props {
 	lead?: boolean;
+	showCall?: boolean;
 }
 
-const { lead = true } = Astro.props;
+const { lead = true, showCall = true } = Astro.props;
 
-const actions = [
-	{ href: 'mailto:trapptutoring@gmail.com', label: 'Email' },
-	{ href: 'sms:+16517600402', label: 'Text' },
-	{ href: 'tel:+16517600402', label: 'Call' },
-] as const;
+const actions: { href: string; label: string; sms?: boolean }[] = [
+	{ href: mailtoHref(), label: 'Email' },
+	{ href: smsHref(), label: 'Text', sms: true },
+];
+
+if (showCall) {
+	actions.push({ href: `tel:${contactPhone}`, label: 'Call' });
+}
 ---
 
 {
@@ -23,7 +29,12 @@ const actions = [
 <div class="meeting-buttons">
 	{
 		actions.map((action) => (
-			<a class="meeting-button" href={action.href}>
+			<a
+				class="meeting-button"
+				href={action.href}
+				data-sms-number={action.sms ? contactPhone : undefined}
+				data-sms-body={action.sms ? textBody : undefined}
+			>
 				{action.label}
 			</a>
 		))

@@ -1,6 +1,7 @@
 ---
 import BrandMark from '../components/BrandMark.astro';
 import MeetingButtons from '../components/MeetingButtons.astro';
+import MeetingDialog from '../components/MeetingDialog.astro';
 import '../styles/tokens.css';
 import '../styles/type.css';
 import '../styles/shell.css';
@@ -72,7 +73,15 @@ function isCurrent(route: string) {
 					}
 				</ul>
 			</nav>
-			<a class="meeting-nav" href={showMeeting ? '#meeting' : `${baseUrl}#meeting`}>Set up a meeting</a>
+			<a
+				class="meeting-nav"
+				href={showMeeting ? '#meeting' : `${baseUrl}#meeting`}
+				data-meeting-open
+				aria-haspopup="dialog"
+				aria-controls="meeting-dialog"
+			>
+				Set up a meeting
+			</a>
 		</header>
 		<main id="main" class={mainClass} tabindex="-1">
 			<slot />
@@ -96,6 +105,7 @@ function isCurrent(route: string) {
 				}
 			</div>
 		</footer>
+		<MeetingDialog />
 		<script>
 			function markOffsiteLinks(root: ParentNode = document) {
 				root.querySelectorAll('a[href]').forEach((link) => {
