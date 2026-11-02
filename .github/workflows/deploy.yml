@@ -26,8 +26,8 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          SITE: https://${{ github.repository_owner }}.github.io
-          BASE: /${{ github.event.repository.name }}/
+          SITE: https://trapptutoring.com
+          BASE: /
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
