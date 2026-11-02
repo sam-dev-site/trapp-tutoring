@@ -27,10 +27,13 @@
 
 .site-header .wordmark-mark {
   box-sizing: content-box;
-  padding: 0.15rem;
-  background: var(--color-paper);
   border-radius: 50%;
   box-shadow: 0 0 0 2px rgb(169 185 159 / 0.55);
+  transition: box-shadow 0.2s ease;
+}
+
+.site-header .wordmark:hover .wordmark-mark {
+  box-shadow: 0 0 0 2px var(--color-rose);
 }
 
 .site-header nav {
@@ -58,12 +61,18 @@
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: 0 2px;
-  transition: background-size 0.2s ease;
+  transition: background-size 0.2s ease, background-image 0.2s ease;
 }
 
-.nav-links a:hover,
+.nav-links a:hover {
+  color: var(--color-plum);
+  background-image: linear-gradient(var(--color-rose), var(--color-rose));
+  background-size: 100% 2px;
+}
+
 .nav-links a[aria-current="page"] {
   color: var(--color-plum);
+  background-image: linear-gradient(var(--color-terracotta), var(--color-terracotta));
   background-size: 100% 2px;
 }
 
@@ -95,7 +104,7 @@
 
 .site-header .meeting-nav:hover {
   color: var(--color-ivory);
-  background-color: #a45330;
+  background-color: var(--color-berry);
 }
 
 .meeting-nav:hover {

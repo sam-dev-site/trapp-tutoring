@@ -11,7 +11,7 @@
   width: 100%;
   padding: 1rem;
   background-color: var(--color-well);
-  border: 2px dashed var(--color-sage);
+  border: 2px dashed var(--color-frame);
   border-radius: 1rem;
 }
 
@@ -52,4 +52,59 @@
   object-fit: cover;
   object-position: center;
   border-radius: 1rem;
+}
+
+.frame-photo img {
+  box-shadow:
+    0 0 0 var(--frame-matte) var(--color-paper),
+    0 0 0 calc(var(--frame-matte) + var(--frame-outer)) var(--color-frame),
+    0 12px 28px rgb(84 70 90 / 0.1);
+  animation: frame-settle 0.7s ease both;
+}
+
+.frame-photo--deep img {
+  box-shadow:
+    0 0 0 var(--frame-matte) var(--color-paper),
+    0 0 0 calc(var(--frame-matte) + var(--frame-outer)) var(--color-frame),
+    0 0 0 calc(var(--frame-matte) + var(--frame-outer) + 0.12rem) var(--color-frame-deep),
+    0 12px 28px rgb(84 70 90 / 0.12);
+}
+
+.frame-photo--circle {
+  width: min(100%, 22rem);
+  margin-inline: auto;
+}
+
+.frame-photo--circle img {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.frame-photo--tilted {
+  transform-origin: center bottom;
+}
+
+@media (min-width: 40rem) {
+  .frame-photo--tilted {
+    transform: rotate(-1.5deg);
+  }
+}
+
+@keyframes frame-settle {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame-photo img {
+    animation: none;
+  }
 }

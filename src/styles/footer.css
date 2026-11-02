@@ -3,6 +3,7 @@
   border-top: 0;
   padding: 2rem 1.25rem 2.4rem;
   background:
+    radial-gradient(ellipse 42% 70% at 0% 100%, var(--color-rose-soft), transparent 48%),
     radial-gradient(ellipse 50% 80% at 100% 100%, rgb(217 185 111 / 0.16), transparent 46%),
     rgb(169 185 159 / 0.32);
   border-radius: var(--radius-tile) var(--radius-tile) 0 0;
